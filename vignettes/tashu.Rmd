@@ -1,0 +1,94 @@
+---
+title: "tashu : Analysis and Demand forecast for Public bicycles('Tashu') in Daejeon, South Korea"
+author: "JiWon Min"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+## 1. Introduction
+  Major cities in the world operate public bicycle systems as green public transportation. The public bicycle system is leading to the effect of the dispersion of public transportation demand and the increase of the citizens' momentum. Daejeon City in South Korea also has operated a public bicycle system called "Tashu"" since 2012 and is conducting research to increase utilization.
+  As the public bicycle system expands, the scale of relocation work is also growing. If the relocation work is not done at the right time, there will be an unbalanced situation where there is no bike in station that rental is mainly made. In order to find the time when relocation work is required, It is necessary to analyze the bicycle rental history to grasp the usage patterns of the citizens. We can check The change of bicycle usage according to time, weather, and festival condition and predict the bicycle demand at each station.
+  This package provides bicycle rental history data on Tashu from 2013 to 2015, analytic source code, and prediction for demand using random forest algorithm. 
+  
+ (공공 자전거 시스템의 현 상황)
+ 세계 주요 도시는 녹색대중교통수단으로 공공 자전거 시스템을 운영하고 있다. 공공 자전거 시스템은 대중교통 수요 분산, 시민들의 운동량 증대의 효과를 이끌어 내고 있다. 대전시 또한 2012년부터 타슈라는 공공 자전거 시스템을 운영하고 있으며 활용도를 높이기 위한 연구를 행하고 있다.
+ (분석&예측의 필요성)
+ 공공 자전거 시스템이 확대되면서 재배치 작업의 규모도 커지고 있다. 재배치 작업이 알맞은 시간에 이루어지지 않으면 대여가 주로 이루어지는 정류소에 자전거가 부족하거나 반납이 주로 이루어지는 정류소에 반납할 자리가 없는 불균형 상황이 생긴다. 각 정류소 별로 재배치 작업이 필요한 시점을 찾기 위해, 자전거 대여 이력을 분석하여 시민들의 이용 패턴을 파악해야 한다. 시간, 기상, 축제 상태에 따른 자전거 사용량 변화를 확인하고 이에 따른 자전거 수요를 예측한다.
+ (이 패키지 소개)
+ 이 패키지는 2013 ~ 2015 년도 타슈 대여 이력 데이터와 분석 소스, 랜덤 포레스트 알고리즘을 이용한 예측 소스를 제공한다. 데이터를 이용하여 자유롭게 자전거 사용 패턴을 분석하고 예측할 수 있다.
+ 
+
+## 2. Data
+1.    Tashu Data
+Bicycle rental history on Tashu from 2013 to 2015.
+tashu2013 : Rental history In 2013.
+tashu2014 : Rental history In 2014.
+tashu2015 : Rental history In 2015.
+Data consists of "RENT STATION, RENT DATE, RETURN STATION, RETURN DATE"
+<<<<<<< HEAD
+
+```{r}
+load(file = "../tashu2013.RData")
+head(tashu2013, n = 10)
+```
+
+=======
+```{r}
+head(tashu2013, n = 10)
+```
+>>>>>>> 1784ae8f4dfc61f96665fa8baa983a35671d3c5f
+1.    Weather Data
+Weather Data In Daejeon from 2013 to 2015.
+1.    Festival Data
+
+
+Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+
+- Never uses retina figures
+- Has a smaller default figure size
+- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+
+## Vignette Info
+
+Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+
+## Styles
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))

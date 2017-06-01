@@ -1,0 +1,16 @@
+Package: Tashu
+Type: Package
+Title: Usage Pattern Analysis and Demand Forecasting on Public Bicycle System('Tashu') in Daejeon, South Korea.
+Version: 0.1.0
+Author: person("Jiwon", "Min", email = "miw5281@gmail.com")
+Maintainer: Jiwon Min <miw5281@gmail.com>
+Description: An implementation of analysis and prediction function on Public Bicycle System('Tashu') in Daejeon, South Korea.
+    This package provides Bike rental history, Bike station, weather and festival data from 2013 to 2015.
+    Anyone can analyze the data and predict the demand of rental free. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: ggplot2, dplyr, randomForest, lubridate, plyr, ggmap
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
