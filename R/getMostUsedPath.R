@@ -39,6 +39,19 @@ getMostUsedPath <- function(){
     resultDF[resultDF$RETURN_STATION == returnStat,]$Return_lat <- tashuStationData[tashuStationData$KIOSKNUM == returnStat,]$GEODATA_lat
   }
 
-  p <- get_googlemap("daejeon", zoom = 12, maptype = "roadmap")%>% ggmap
+  rentStationGeoDF <- data.frame(lon = resultDF$Rent_lon, lat = resultDF$Rent_lat)
+  returnStationGeoDF <- data.frame(lon = resultDF$Return_lon, lat = resultDF$Return_lat)
+  markerList <- rbind(rentStationGeoDF, returnStationGeoDF)
+  pathList <- data.frame(lon,lat,group)
+
+  map <- get_googlemap("daejeon", zoom = 13,
+                       markers = data.frame(lon = markerList$lon, lat = markerList$lat),
+                       maptype = "roadmap")
+
+  ggmap(map, extent = "device")+
+    geom_point(data = resultDF, aes(x = Rent_lon, y = Rent_lat))+
+    geom_text(data = resultDF, aes(label = RENT_STATION))
+
+
 
 }

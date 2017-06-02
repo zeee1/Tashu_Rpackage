@@ -23,9 +23,12 @@ getHeavilyUsedStations <- function() {
     resultDF <- arrange(resultDF, desc(usage))
     resultDF <- head(resultDF, n = 10)
 
+
     # visualization
     p <- ggplot(resultDF, aes(x = reorder(station, usage), y = usage)) + geom_bar(data = resultDF, stat = "identity", fill = "#53cfff") + coord_flip() + theme_light(base_size = 20) + xlab("Station") +
         ylab("Count") + ggtitle("Most Heavily used Station In 2013 ~ 2015\n") + theme(plot.title = element_text(size = 18))
+
+
 
     return(p)
 }
