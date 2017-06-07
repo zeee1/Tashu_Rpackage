@@ -2,7 +2,7 @@
 % Please edit documentation in R/getHeavilyUsedStations.R
 \name{getHeavilyUsedStations}
 \alias{getHeavilyUsedStations}
-\title{Get top 10 stations that have the most amount of rentals}
+\title{Get top 10 stations that have the most amount of rentals from 2013 to 2015.}
 \usage{
 getHeavilyUsedStations()
 }
@@ -10,7 +10,7 @@ getHeavilyUsedStations()
 The visualized image
 }
 \description{
-Get top 10 stations that have the most amount of rentals
+Get top 10 stations that have the most amount of rentals from 2013 to 2015.
 }
 \examples{
 getHeavilyUsedStations()

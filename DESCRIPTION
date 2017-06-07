@@ -14,3 +14,4 @@ Imports: ggplot2, dplyr, randomForest, lubridate, plyr, ggmap
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+RoxygenNote: 6.0.1

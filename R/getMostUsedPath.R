@@ -8,7 +8,7 @@ getMostUsedPath <- function(){
   resultDF <- data.frame(RENT_STATION = as.integer(), RETURN_STATION = as.integer(), count = as.integer())
 
   for(i_station in stationList){
-    rentStationSubset <- tashuTotalData[tashuTotalData$RENT_STATION == i_station,]
+    rentStationSubset <- tashuDataFor3year[tashuDataFor3year$RENT_STATION == i_station,]
 
     for(j_station in stationList){
       returnStationSubset <- rentStationSubset[rentStationSubset$RETURN_STATION == j_station,]

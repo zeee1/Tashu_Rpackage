@@ -11,8 +11,8 @@ getAmountOfRentalEachDayOfWeek <- function() {
   resultDF <- data.frame(weekday = as.integer(), hour = as.integer(), count = as.integer())
 
   for (i_weekday in dayOfWeekList) {
-    locs <- wday(tashuTotalData$rentDateTime) == i_weekday
-    weekdaySubset <- tashuTotalData[locs, ]
+    locs <- wday(tashuDataFor3year$rentDateTime) == i_weekday
+    weekdaySubset <- tashuDataFor3year[locs, ]
 
     hourList <- c(5:23)
 

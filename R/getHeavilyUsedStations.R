@@ -13,8 +13,8 @@ getHeavilyUsedStations <- function() {
 
     # Get number of rentals In each station.
     for (i_station in stationList) {
-        locs <- tashuTotalData$RENT_STATION == i_station
-        rentSubset <- tashuTotalData[locs, ]
+        locs <- tashuDataFor3year$RENT_STATION == i_station
+        rentSubset <- tashuDataFor3year[locs, ]
 
         resultDF[resultDF$station == i_station, ]$usage <- NROW(rentSubset)
     }

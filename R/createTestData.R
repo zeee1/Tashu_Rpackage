@@ -33,7 +33,7 @@ createTestData <- function(stationNum){
 
     rentTimeSubset <- rentSubsetInTest[rentSubsetInTest$rentDateTime >= currentDateTime & rentSubsetInTest$rentDateTime < nextDateTime, ]
 
-    weatherSubset <- weather2015Data[weather2015Data$DT == currentDateTime, ]
+    weatherSubset <- weather2015[weather2015$Datetime == currentDateTime, ]
 
     if (is.na(weatherSubset$Rainfall)) {
       weatherSubset$Rainfall <- 0

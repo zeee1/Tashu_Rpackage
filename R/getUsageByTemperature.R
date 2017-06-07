@@ -16,13 +16,13 @@ getUsageByTemperature <- function(){
   resultDF <- data.frame(month = c(1:12), count = NA, rent_ratio = NA, avgOfTemperature = NA)
 
   # weatherFrom2013to2015 : weather Data for 3 years.
-  weatherFrom2013to2015 <- rbind(weather2013Data, weather2014Data)
-  weatherFrom2013to2015 <- rbind(weatherFrom2013to2015, weather2015Data)
+  weatherFrom2013to2015 <- rbind(weather2013, weather2014)
+  weatherFrom2013to2015 <- rbind(weatherFrom2013to2015, weather2015)
 
   # Get average of number of rental In each month for 3 years.
   for (i_month in monthList) {
-    locs <- month(tashuTotalData$rentDateTime) == i_month
-    monthlySubsetData <- tashuTotalData[locs, ]
+    locs <- month(tashuDataFor3year$rentDateTime) == i_month
+    monthlySubsetData <- tashuDataFor3year[locs, ]
     resultDF[resultDF$month == i_month, ]$count <- NROW(monthlySubsetData)/3
 
     locs <- month(weatherFrom2013to2015$Datetime) == i_month

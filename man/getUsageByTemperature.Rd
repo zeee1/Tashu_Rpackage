@@ -2,15 +2,15 @@
 % Please edit documentation in R/getUsageByTemperature.R
 \name{getUsageByTemperature}
 \alias{getUsageByTemperature}
-\title{Get usage pattern By temperature and month.}
+\title{Show the change of rental amount according to Temperature.}
 \usage{
 getUsageByTemperature()
 }
 \value{
-visualized image that present usage change by temperature and month
+A graph that present usage change by temperature and month
 }
 \description{
-Get usage pattern By temperature and month.
+Show the change of rental amount according to Temperature.
 }
 \examples{
 getUsageByTemperature()

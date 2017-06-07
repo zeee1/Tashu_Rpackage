@@ -5,7 +5,7 @@
 #' createTrainData(1)
 
 createTrainData <- function(stationNum){
-  rentSubsetInTrain <- tashuTotalData[tashuTotalData$RENT_STATION == stationNum, ]
+  rentSubsetInTrain <- tashuDataFor3year[tashuDataFor3year$RENT_STATION == stationNum, ]
 
   # rent_TrainDF(datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, rentCount)
   # datetime : hourly date + timestamp(2013.01.01 00:00 ~ 2014.12.31 23:00)
@@ -35,10 +35,10 @@ createTrainData <- function(stationNum){
     weatherSubset <- data.frame()
 
     if (year(currentDateTime) == 2013) {
-      weatherSubset <- weather2013Data[weather2013Data$DT == currentDateTime, ]
+      weatherSubset <- weather2013[weather2013$Datetime == currentDateTime, ]
     }
     if (year(currentDateTime) == 2014) {
-      weatherSubset <- weather2014Data[weather2014Data$DT == currentDateTime, ]
+      weatherSubset <- weather2014[weather2014$Datetime == currentDateTime, ]
     }
 
     if (is.na(weatherSubset$Rainfall)) {
