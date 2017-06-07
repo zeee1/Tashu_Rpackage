@@ -49,6 +49,9 @@ getMostUsedPath <- function(){
                        markers = data.frame(lon = rentStationGeoDF$lon, lat = rentStationGeoDF$lat),
                        maptype = "roadmap") %>% ggmap
 
+  colorList <- c("#558de8", "#e82e40", "#1ebc09", "#f26f18", "#d12baa", "#2bd1b8")
+  #파 빨 검 주 보 민
+
 
   map <- map+
     geom_text(data = rentStationGeoDF, aes(label = name))+

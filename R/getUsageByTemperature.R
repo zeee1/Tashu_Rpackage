@@ -1,4 +1,4 @@
-#' Show the change of rental amount By Temperature.
+#' Show the change of rental amount according to Temperature.
 #'
 #' @return A graph that present usage change by temperature and month
 #' @examples
