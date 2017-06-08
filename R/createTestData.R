@@ -1,6 +1,9 @@
-#' Create Train Data for prediction In StationNum.
+#' Create test data frame for prediction.
+#'
+#' This function create test data frame for prediction.
 #'
 #' @param stationNum Station Number (1 ~ 144)
+#' @return
 #' @examples
 #' createTrainData(1)
 
@@ -74,7 +77,8 @@ createTestData <- function(stationNum){
     currentDateTime <- nextDateTime
   }
 
-  assign(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL), rent_TestDF)
+  #assign(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL), rent_TestDF)
+  return(rent_TestDF)
 }
 
 

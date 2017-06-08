@@ -21,7 +21,7 @@ getUsageByTemperature <- function(){
 
   # Get average of number of rental In each month for 3 years.
   for (i_month in monthList) {
-    locs <- month(tashuDataFor3year$rentDateTime) == i_month
+    locs <- month(tashuDataFor3year$RENT_DATE) == i_month
     monthlySubsetData <- tashuDataFor3year[locs, ]
     resultDF[resultDF$month == i_month, ]$count <- NROW(monthlySubsetData)/3
 

@@ -4,8 +4,6 @@
 tashu2013 <- read.csv("./data/tashu2013.csv", stringsAsFactors = F)
 tashu2014 <- read.csv("./data/tashu2014.csv", stringsAsFactors = F)
 
-# Remove rows that contain NA tashu20132014Data <- na.omit(tashu20132014Data) tashu20132014Data$rentDateTime <- ymd_hms(tashu20132014Data$RENT_DATE) tashu20132014Data$returnDateTime <-
-# ymd_hms(tashu20132014Data$RETURN_DATE)
 tashu2013 <- na.omit(tashu2013)
 tashu2013$RENT_DATE <- ymd_hms(tashu2013$RENT_DATE)
 tashu2013$RETURN_DATE <- ymd_hms(tashu2013$RETURN_DATE)

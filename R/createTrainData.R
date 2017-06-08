@@ -1,4 +1,7 @@
-#' Create Train Data for prediction In StationNum.
+#' Create training Data for prediction In Station stationNum.
+#'
+#' This is a function that create training data for forecasting bike demand in station "stationNum".
+#'
 #'
 #' @param stationNum Station Number (1 ~ 144)
 #' @examples
