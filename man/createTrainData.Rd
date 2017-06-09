@@ -2,7 +2,7 @@
 % Please edit documentation in R/createTrainData.R
 \name{createTrainData}
 \alias{createTrainData}
-\title{Create Train Data for prediction In StationNum.}
+\title{Create training Data for prediction In Station stationNum.}
 \usage{
 createTrainData(stationNum)
 }
@@ -10,7 +10,7 @@ createTrainData(stationNum)
 \item{stationNum}{Station Number (1 ~ 144)}
 }
 \description{
-Create Train Data for prediction In StationNum.
+This is a function that create training data for forecasting bike demand in station "stationNum".
 }
 \examples{
 createTrainData(1)

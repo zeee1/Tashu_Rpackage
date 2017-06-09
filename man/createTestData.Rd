@@ -2,7 +2,7 @@
 % Please edit documentation in R/createTestData.R
 \name{createTestData}
 \alias{createTestData}
-\title{Create Train Data for prediction In StationNum.}
+\title{Create test data frame for prediction.}
 \usage{
 createTestData(stationNum)
 }
@@ -10,7 +10,7 @@ createTestData(stationNum)
 \item{stationNum}{Station Number (1 ~ 144)}
 }
 \description{
-Create Train Data for prediction In StationNum.
+This function create test data frame for prediction.
 }
 \examples{
 createTrainData(1)

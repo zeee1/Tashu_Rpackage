@@ -77,8 +77,8 @@ createTestData <- function(stationNum){
     currentDateTime <- nextDateTime
   }
 
-  #assign(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL), rent_TestDF)
-  return(rent_TestDF)
+  assign(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL), rent_TestDF)
+  #return(rent_TestDF)
 }
 
 

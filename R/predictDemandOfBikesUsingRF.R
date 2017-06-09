@@ -1,13 +1,16 @@
 #' Predict hourly Demand of Bike in 2015.
 #'
-#' @param stationNum A number from 1 to 144
+#' @param trainData training data for creating prediction model
+#' @param testData testing data for prediction
 #' @param isImportance if TRUE, visualize the ranking of Feature importance.
-#' @param numOfNtree random Forest Ntree number
-#' @param type if 0, classification. if 1, regression
+#' @param numOftree number of tree in random Forest
+#' @param type if 0, random Forest for classification. if 1, random Forest for regression
 #' @examples
-#' predictDemandOfBikesUsingRF(3, TRUE, 50, 1)
+#' trainData <- createTrainData(3)
+#' testData <- createTestData(3)
+#' predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
 
-predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOfNtree, type) {
+predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOftree, type) {
     # trainData :
     trainData <- get(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL))
 
@@ -39,7 +42,7 @@ predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOfNtree, ty
 
     } else {
         # randomForest regression
-        rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOfNtree, importance = isImportance)
+        rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOftree, importance = isImportance)
         for (i_month in monthList) {
             locs <- testData$rentMonth == i_month
             monthlySubsetData <- testData[locs, ]
