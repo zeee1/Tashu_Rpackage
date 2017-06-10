@@ -49,7 +49,103 @@
 #'   \item{NUM}{station Number}
 #'   \item{KIOSKNUM}{station Number}
 #'   \item{DISTRICT}{district where the station is located}
-#'   \item{NUM}{station Number}
+#'   \item{LOCATION}{station location}
+#'   \item{ADDRESS}{station address}
+#'   \item{NUMOFBIKESIT}{the number of bike holder}
+#'   \item{GEODATA_lat}{latitude of bike station}
+#'   \item{GEODATA_lon}{longitude of bike station}
 #' }
 #' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashuStationData"
+
+#' weather data In Daejeon, 2013
+#'
+#' A dataset containing hourly weather data in Daejeon, 2013
+#'
+#' @format A data frame with 8760 rows and 18 variables:
+#' \describe{
+#'   \item{Temperature}{Average temperature}
+#'   \item{Rainfall}{Rainfall}
+#'   \item{WindSpeed}{Wind Speed(m/s)}
+#'   \item{WindDirection}{Wind Direction}
+#'   \item{Humidity}{Humidity}
+#'   \item{VaporPressure}{Vapor Pressure(hpa)}
+#'   \item{DewpointTemperature}{Dew point temperature(°C)}
+#'   \item{LocalPressure}{Local Pressure(hpa)}
+#'   \item{SeaSurfacePressure}{Sea Surface Pressure(hpa)}
+#'   \item{Sunshine}{sun shine(hr)}
+#'   \item{SolarRadiation}{solar radiation(MJ/m2)}
+#'   \item{Snowfall}{snow fall(cm)}
+#'   \item{GroundTemperature}{ground temperature(°C)}
+#'   \item{X5cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X10cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X20cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X30cmGroundTemperature}{ground temperature(°C)}
+#' }
+"weather2013"
+
+#' weather data In Daejeon, 2014
+#'
+#' A dataset containing hourly weather data in Daejeon, 2014
+#'
+#' @format A data frame with 8760 rows and 18 variables:
+#' \describe{
+#'   \item{Temperature}{Average temperature}
+#'   \item{Rainfall}{Rainfall}
+#'   \item{WindSpeed}{Wind Speed(m/s)}
+#'   \item{WindDirection}{Wind Direction}
+#'   \item{Humidity}{Humidity}
+#'   \item{VaporPressure}{Vapor Pressure(hpa)}
+#'   \item{DewpointTemperature}{Dew point temperature(°C)}
+#'   \item{LocalPressure}{Local Pressure(hpa)}
+#'   \item{SeaSurfacePressure}{Sea Surface Pressure(hpa)}
+#'   \item{Sunshine}{sun shine(hr)}
+#'   \item{SolarRadiation}{solar radiation(MJ/m2)}
+#'   \item{Snowfall}{snow fall(cm)}
+#'   \item{GroundTemperature}{ground temperature(°C)}
+#'   \item{X5cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X10cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X20cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X30cmGroundTemperature}{ground temperature(°C)}
+#' }
+"weather2014"
+
+#' weather data In Daejeon, 2015
+#'
+#' A dataset containing hourly weather data in Daejeon, 2015
+#'
+#' @format A data frame with 8760 rows and 18 variables:
+#' \describe{
+#'   \item{Temperature}{Average temperature}
+#'   \item{Rainfall}{Rainfall}
+#'   \item{WindSpeed}{Wind Speed(m/s)}
+#'   \item{WindDirection}{Wind Direction}
+#'   \item{Humidity}{Humidity}
+#'   \item{VaporPressure}{Vapor Pressure(hpa)}
+#'   \item{DewpointTemperature}{Dew point temperature(°C)}
+#'   \item{LocalPressure}{Local Pressure(hpa)}
+#'   \item{SeaSurfacePressure}{Sea Surface Pressure(hpa)}
+#'   \item{Sunshine}{sun shine(hr)}
+#'   \item{SolarRadiation}{solar radiation(MJ/m2)}
+#'   \item{Snowfall}{snow fall(cm)}
+#'   \item{GroundTemperature}{ground temperature(°C)}
+#'   \item{X5cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X10cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X20cmGroundTemperature}{ground temperature(°C)}
+#'   \item{X30cmGroundTemperature}{ground temperature(°C)}
+#' }
+"weather2015"
+
+#' festival data In Daejeon from 2013 to 2015
+#'
+#' A dataset containing festival data in Daejeon, from 2013 to 2015
+#'
+#' @format A data frame with 116 rows and 5 variables:
+#' \describe{
+#'   \item{Festival}{The name of Festival}
+#'   \item{Location}{The festival Location}
+#'   \item{nearStation}{tashu station near the festival location}
+#'   \item{startDate}{datetime when festival start}
+#'   \item{endDate}{datetime when festival end}
+#' }
+"festivalData"
