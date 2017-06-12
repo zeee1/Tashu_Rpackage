@@ -1,6 +1,7 @@
-#' Show the change of rental amount according to Temperature.
+#' Show the change of amount of bike rental by Temperature.
 #'
-#' @return A graph that present usage change by temperature and month
+#' This function draw a plot that show change of average temperature and average bike rental ratio in each month.
+#'
 #' @examples
 #' getUsageByTemperature()
 
@@ -50,10 +51,10 @@ getUsageByTemperature <- function(){
 
   # Draw rental ratio axis
   axis(4, ylim = c(0,15), col = "black", las = 1)
-  mtext("Amount of Rental ratio(%)", side = 4, line = 4)
+  mtext("Amount of Rental ratio(%)", side = 4, line = 2.5)
 
 
-  op <- par(cex = 0.8)
+  #op <- par(cex = 0.8)
   legend("topright", legend = c("Average Temperature", "Amount of Rental Ratio"), text.col = c("blue", "red"),
          pch = c(16,15), col = c("blue", "red"))
 }

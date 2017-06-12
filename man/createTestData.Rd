@@ -9,8 +9,11 @@ createTestData(stationNum)
 \arguments{
 \item{stationNum}{Station Number (1 ~ 144)}
 }
+\value{
+a data frame that contains hourly (datetiem, season, month, hour, day of week, temperature, humidity, rainfall, isFestival, real number of rental in stationNum station, )
+}
 \description{
-This function create test data frame for prediction.
+Create test data frame for prediction.
 }
 \examples{
 createTrainData(1)

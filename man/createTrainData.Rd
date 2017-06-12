@@ -7,11 +7,15 @@
 createTrainData(stationNum)
 }
 \arguments{
-\item{stationNum}{Station Number (1 ~ 144)}
+\item{stationNum}{number that means the number of each station.(1 ~ 144)}
+}
+\value{
+a data frame that present hourly amount of bike rental in "stationNum" station from 2013 to 2014.
+columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, festival, rental count
 }
 \description{
-This is a function that create training data for forecasting bike demand in station "stationNum".
+Create training data frame in "stationNum" bike station by preprocessing bike rental history, weather and festival data from 2013 to 2014.
 }
 \examples{
-createTrainData(1)
+trainData <- createTrainData(1)
 }

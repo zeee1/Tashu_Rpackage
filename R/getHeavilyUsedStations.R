@@ -1,6 +1,6 @@
 #' Get top 10 stations that have the most amount of rentals from 2013 to 2015.
 #'
-#' @return The visualized image
+#' Draw two plots that visualized most used top 10 stations on barchart and map.
 #' @examples
 #' getHeavilyUsedStations()
 

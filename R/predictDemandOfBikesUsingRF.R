@@ -5,17 +5,18 @@
 #' @param isImportance if TRUE, visualize the ranking of Feature importance.
 #' @param numOftree number of tree in random Forest
 #' @param type if 0, random Forest for classification. if 1, random Forest for regression
+#' @return a data frame that
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
 #' predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
 
-predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOftree, type) {
+predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance, numOftree, type) {
     # trainData :
-    trainData <- get(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL))
+    #trainData <- get(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL))
 
     # testData :
-    testData <- get(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL))
+    #testData <- get(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL))
 
     monthList <- unique(trainData$rentMonth)
     monthList <- monthList[!is.na(monthList)]
@@ -37,7 +38,7 @@ predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOftree, typ
             testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
         }
 
-        assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
+        #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
         # write.csv(testData, file = paste('station',toString(stationNum),'_rf_classification_result.csv',sep = '', collapse = NULL), row.names = F)
 
     } else {
@@ -50,7 +51,7 @@ predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOftree, typ
             testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
         }
 
-        assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
+        #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
         # write.csv(testData, file = paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
     }
 
@@ -61,4 +62,6 @@ predictDemandOfBikesUsingRF <- function(stationNum, isImportance, numOftree, typ
         ggplot(featureImportance, aes(x = reorder(Feature, Importance), y = Importance)) + geom_bar(stat = "identity", fill = "#53cfff") + coord_flip() + theme_light(base_size = 20) +
             xlab("Importance") + ylab("") + ggtitle("Random Forest Feature Importance\n") + theme(plot.title = element_text(size = 18))
     }
+
+    return(testData)
 }

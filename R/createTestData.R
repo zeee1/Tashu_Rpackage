@@ -1,9 +1,9 @@
-#' Create test data frame for prediction.
+#' Create testing data frame for prediction.
 #'
-#' This function create test data frame for prediction.
+#' Create testing data frame in "stationNum" bike station by preprocessing bike rental history, weather and festival data in 2015.
 #'
-#' @param stationNum Station Number (1 ~ 144)
-#' @return
+#' @param stationNum number that means the number of each station.(1 ~ 144)
+#' @return a data frame that contains hourly (datetiem, season, month, hour, day of week, temperature, humidity, rainfall, isFestival, real number of rental in stationNum station, )
 #' @examples
 #' createTrainData(1)
 

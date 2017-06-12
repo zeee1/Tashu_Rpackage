@@ -1,11 +1,12 @@
 #' Create training Data for prediction In Station stationNum.
 #'
-#' This is a function that create training data for forecasting bike demand in station "stationNum".
+#' Create training data frame in "stationNum" bike station by preprocessing bike rental history, weather and festival data from 2013 to 2014.
 #'
-#'
-#' @param stationNum Station Number (1 ~ 144)
+#' @param stationNum number that means the number of each station.(1 ~ 144)
+#' @return a data frame that present hourly amount of bike rental in "stationNum" station from 2013 to 2014.
+#' columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, festival, rental count
 #' @examples
-#' createTrainData(1)
+#' trainData <- createTrainData(1)
 
 createTrainData <- function(stationNum){
   rentSubsetInTrain <- tashuDataFor3year[tashuDataFor3year$RENT_STATION == stationNum, ]
@@ -81,7 +82,7 @@ createTrainData <- function(stationNum){
     currentDateTime <- nextDateTime
   }
 
-  assign(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL), rent_TrainDF)
+  return(rent_TrainDF)
 }
 
 

@@ -40,6 +40,19 @@
 #' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashu2015"
 
+#' Bike rental history on Tashu from 2013 to 2015.
+#'
+#' A dataset containing bike rental history(rent station, rent date, return station, return date)
+#'
+#' @format A data frame with 3394159 rows and 4 variables:
+#' \describe{
+#'   \item{RENT_STATION}{station Number where bike was rented.}
+#'   \item{RENT_DATE}{date time when bike was rented. yyyy-mm-dd hh:mm:ss}
+#'   \item{RETURN_STATION}{station Number where bike was returned.}
+#'   \item{RETURN_DATE}{date time when bike was returned. yyyy-mm-dd hh:mm:ss}
+#' }
+"tashuDataFor3year"
+
 #' Bike station data on Tashu.
 #'
 #' A dataset containing 144 bike station
