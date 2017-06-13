@@ -1,10 +1,12 @@
 #' Predict hourly Demand of Bike in 2015.
 #'
+#' predict hourly amount of bike rental in 2015 using random forest algorithm. Create prediction model using "trainData" and forecast demand of bike rental according to the condition of "testData"
+#'
 #' @param trainData training data for creating prediction model
 #' @param testData testing data for prediction
-#' @param isImportance if TRUE, visualize the ranking of Feature importance.
+#' @param isImportance if TRUE, show a image that visualize feature importance in that station.
 #' @param numOftree number of tree in random Forest
-#' @param type if 0, random Forest for classification. if 1, random Forest for regression
+#' @param type 0/1 0 for classification, 1 for regression.
 #' @return a data frame that
 #' @examples
 #' trainData <- createTrainData(3)
@@ -65,3 +67,17 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance, numOf
 
     return(testData)
 }
+
+#' extract features in test data frame.
+#'
+#' extract feature data from test Data.
+#' feature : season, month, hour, day of week, temperature, humidity, rainfall, affect of festival.
+#'
+#' @param data testing data frame for prediction. Testing data frame is created by conducting createTestData()
+
+extractFeatures <- function(data){
+  features <- c ("season","rentMonth","rentHour", "rentWeekday","temperature", "humidity", "rainfall","isFestival")
+
+  return(data[, features])
+}
+
