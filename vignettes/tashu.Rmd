@@ -25,7 +25,7 @@ vignette: >
  (문제 상황)
  공공 자전거 시스템에서 재배치 작업이 사전에 이루어지지 않으면, 대여가 많이 이루어지는 정류소에 자전거가 없거나 반납이 많이 이루어지는 정류소에 반납할 자리가 없는 불균형 상황이 생길 수 있다. 자전거 시스템이 커질 수록 재배치 작업의 로드 또한 커질 것이다. 작업의 효율성을 높이기 위한 방법을 찾아야 한다.
  (해결 방법 제안)
- 자전거 대여 이력 분석을 통해 시민들의 자전거 사용 패턴을 파악하고 수요가 많을 정류소를 확인하는 방법이 있. 자전거 대여량에 영향을 주는 요인들을 파악하여 그에 따른 자전거 대여량 변화를 확인한다.
+ 자전거 대여 이력 분석을 통해 시민들의 자전거 사용 패턴을 파악하고 수요가 많을 정류소를 확인하는 방법이 있다. 자전거 대여량에 영향을 주는 요인들을 파악하여 그에 따른 자전거 대여량 변화를 확인한다.
  
  (해결 방법 소개)
  (해결 방법)
@@ -33,7 +33,7 @@ vignette: >
 
 ## 2. Data
 1.    Tashu Data
-: Bicycle rental history on Tashu from 2013 to 2015. Data consists of "RENT STATION, RENT DATE, RETURN STATION, RETURN DATE"
+: Bicycle rental history on Tashu from 2013 to 2015. Data is consisted of "RENT STATION, RENT DATE, RETURN STATION, RETURN DATE"
 * tashu2013 : Rental history In 2013.
 * tashu2014 : Rental history In 2014.
 * tashu2015 : Rental history In 2015.
@@ -41,11 +41,11 @@ vignette: >
 
 ```{r}
 load(file = "../data/tashu2013.rda")
-head(tashu2013, n = 10)
+head(tashu2013, n = 5)
 ```
 
 1.    Weather Data
-: Weather Data In Daejeon from 2013 to 2015. Data consists of "datetime, temperature, rainfall, windspeed, wind direction, humidity, Dew point temperature, Local Pressure, Sea surface Pressure, Sunshine, Solar Radiation, Snowfall, Ground Temperature"
+: Weather Data In Daejeon from 2013 to 2015. Data is consisted of "datetime, temperature, rainfall, windspeed, wind direction, humidity, Dew point temperature, Local Pressure, Sea surface Pressure, Sunshine, Solar Radiation, Snowfall, Ground Temperature"
 
 * weather2013 : Weather Data In Daejeon, 2013
 * weather2014 : Weather Data In Daejeon, 2014
@@ -53,26 +53,45 @@ head(tashu2013, n = 10)
 
 ```{r}
 load(file = "../data/weather2013.rda")
-head(weather2013, n = 10)
+head(weather2013, n = 5)
 ```
 
 1.    Festival Data
-: Festival Data In Daejeon from 2013 to 2015. 
+: Festival Data In Daejeon from 2013 to 2015. Data is consisted of "Festival(Name of festival), Location(Location of festival), nearStation(bike station affected by festival), startDate(festival starting date time), endDate(festival ending date time)"
+```{r}
+load(file = "../data/festivalData.rda")
+head(festivalData, n = 5)
+```
 
 1.    Tashu Station Data
-: 2014 년도까지 자전거 정류소는 144개가 있었고 2015년도에 새로 신설되어 현재 244개의 스테이션을 운영중이다. 본 연구에서는 기존의 144개 정류소 데이터만을 대상으로 한다.
+: By 2014 there were 144 bicycle stations and a new one in 2015, currently operating 244 stations. In this study, only the existing data of 144 stop stations are considered. Data is consisted of "NUM(Number of station), KIOSKNUM(Number of Kiosk), DISTRICT(District where Station is located), Name(Name of station), LOCATION(Location of station), NUMOFBIKE_RACK(Number of Bike rack), GEODATA_lat(Latitude of station), GEODATA_lon(Longitude of station)"
 
-* tashuStationData : Station data on Tashu system. 
+2014 년도까지 자전거 정류소는 144개가 있었고 2015년도에 새로 신설되어 현재 244개의 스테이션을 운영중이다. 본 연구에서는 기존의 144개 정류소 데이터만을 대상으로 한다. 데이터는 "스테이션 번호, 키오스크 번호, 구, 스테이션 명, 스테이션 위치, 스테이션 주소, 자전거 거치대 수, 스테이션 위도, 스테이션 경도"로 구성되어 있다.
+
+* tashuStationData : data of 144 Stations on Tashu system. 
 ```{r}
 load(file = "../data/tashuStationData.rda")
-head(weather2013, n = 10)
+head(tashuStationData, n = 5)
 ```
 
 
 ## 3. Analysis
+
 대전 시민들의 자전거 사용 패턴을 확인하기 위한 분석을 수행하였다. 자전거 사용량에 영향을 주는 요인으로 시간, 기상 상태를 선정하였다. 그에 따른 자전거 사용량 변화를 확인하였다.
+This package provide some functions that analyze bike usage pattern. Time and weather conditions were selected as factors affecting bicycle usage.
 
+1.    getMostUsedStations()
+: This function presents top 10 stations that have most number of bike rental for 3 years.
 
+```{r}
+#library(Tashu)
+#getHeavilyUsedStations()
+```
+
+1.    getMostUsedPath()
+: This function presents top 10 pathes that have mostly used for 3 years.
+
+1.    getAmountOfRentalEachMonth()
 ## 4. Prediction
 
 

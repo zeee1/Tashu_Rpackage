@@ -3,11 +3,11 @@
 #' predict hourly amount of bike rental in 2015 using random forest algorithm. Create prediction model using "trainData" and forecast demand of bike rental according to the condition of "testData"
 #'
 #' @param trainData training data for creating prediction model
-#' @param testData testing data for prediction
+#' @param testData testing data.
 #' @param isImportance if TRUE, show a image that visualize feature importance in that station.
 #' @param numOftree number of tree in random Forest
 #' @param type 0/1 0 for classification, 1 for regression.
-#' @return a data frame that
+#' @return testData with predictive result.
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
