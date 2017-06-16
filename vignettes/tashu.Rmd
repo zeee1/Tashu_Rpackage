@@ -80,7 +80,7 @@ head(tashuStationData, n = 5)
 대전 시민들의 자전거 사용 패턴을 확인하기 위한 분석을 수행하였다. 자전거 사용량에 영향을 주는 요인으로 시간, 기상 상태를 선정하였다. 그에 따른 자전거 사용량 변화를 확인하였다.
 This package provide some functions that analyze bike usage pattern. Time and weather conditions were selected as factors affecting bicycle usage.
 
-1.    getMostUsedStations()
+1.    getTop10Stations()
 : This function presents top 10 stations that have most number of bike rental for 3 years.
 
 ```{r}
@@ -88,10 +88,22 @@ This package provide some functions that analyze bike usage pattern. Time and we
 #getHeavilyUsedStations()
 ```
 
-1.    getMostUsedPath()
+1.    getTop10Pathes()
 : This function presents top 10 pathes that have mostly used for 3 years.
+```{r}
+#library(Tashu)
+#getTop10PathES()
+```
 
 1.    getAmountOfRentalEachMonth()
+: This function show average amount of bike rental in each months.
+```{r}
+#library(Tashu)
+#getAmountOfRentalEachMonth()
+```
+
+1.    getAmountOfRentalEachDayOfWeek()
+1.    get
 ## 4. Prediction
 
 

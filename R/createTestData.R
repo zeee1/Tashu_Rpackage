@@ -19,7 +19,7 @@ createTestData <- function(stationNum){
   # temperature
   # humidity
   # rainfall
-  # isFestival : if there was a Festival near stationNum th station in datetime, it would be 1. otherwise, 0
+  # isFestival : if there was Festival near stationNum th station in datetime, it would be 1. otherwise, 0
   # RrentCount : number of rentals in stationNum th station.
   # PrentCount : predictive number of rentals in stationNum th station.
   rent_TestDF <- data.frame(datetime = as.Date(character()), season = character(), rentMonth = character(), rentHour = character(), rentWeekday = character(), temperature = integer(),

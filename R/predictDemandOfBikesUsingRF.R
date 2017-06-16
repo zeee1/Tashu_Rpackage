@@ -57,6 +57,7 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance, numOf
         # write.csv(testData, file = paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
     }
 
+
     if (isImportance == TRUE) {
         imp <- importance(rfModel, type = 1)
         featureImportance <- data.frame(Feature = row.names(imp), Importance = imp[, 1])
