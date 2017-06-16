@@ -34,7 +34,7 @@ createTrainData <- function(stationNum){
     nextDateTime <- currentDateTime + hours(1)
 
     # Collect rental Data that occurred between currentDateTime and nextDateTime.
-    rentTimeSubset <- rentSubsetInTrain[rentSubsetInTrain$rentDateTime >= currentDateTime & rentSubsetInTrain$rentDateTime < nextDateTime, ]
+    rentTimeSubset <- rentSubsetInTrain[rentSubsetInTrain$RENT_DATE >= currentDateTime & rentSubsetInTrain$RENT_DATE < nextDateTime, ]
 
     weatherSubset <- data.frame()
 
@@ -75,8 +75,15 @@ createTrainData <- function(stationNum){
       }
     }
 
-    rent_TrainDF <- rbind(rent_TrainDF, data.frame(datetime = currentDateTime, season = season, rentMonth = toString(month(currentDateTime)), rentHour = toString(hour(currentDateTime)),
-                                                   rentWeekday = wday(currentDateTime, label = TRUE), temperature = weatherSubset$Temperature, humidity = weatherSubset$Humidity, rainfall = weatherSubset$Rainfall, isFestival = isFestival,
+    rent_TrainDF <- rbind(rent_TrainDF, data.frame(datetime = currentDateTime,
+                                                   season = season,
+                                                   rentMonth = toString(month(currentDateTime)),
+                                                   rentHour = toString(hour(currentDateTime)),
+                                                   rentWeekday = wday(currentDateTime, label = TRUE),
+                                                   temperature = weatherSubset$Temperature,
+                                                   humidity = weatherSubset$Humidity,
+                                                   rainfall = weatherSubset$Rainfall,
+                                                   isFestival = isFestival,
                                                    rentCount = NROW(rentTimeSubset)))
 
     currentDateTime <- nextDateTime

@@ -3,7 +3,8 @@
 #' Create testing data frame in "stationNum" bike station by preprocessing bike rental history, weather and festival data in 2015.
 #'
 #' @param stationNum number that means the number of each station.(1 ~ 144)
-#' @return a data frame that contains hourly (datetiem, season, month, hour, day of week, temperature, humidity, rainfall, isFestival, real number of rental in stationNum station, )
+#' @return a data frame that contains test Data in "stationNum" station, 2015
+#' columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
 #' @examples
 #' createTrainData(1)
 
@@ -34,7 +35,7 @@ createTestData <- function(stationNum){
   while (currentDateTime <= endDateTime) {
     nextDateTime <- currentDateTime + hours(1)
 
-    rentTimeSubset <- rentSubsetInTest[rentSubsetInTest$rentDateTime >= currentDateTime & rentSubsetInTest$rentDateTime < nextDateTime, ]
+    rentTimeSubset <- rentSubsetInTest[rentSubsetInTest$RENT_DATE >= currentDateTime & rentSubsetInTest$RENT_DATE < nextDateTime, ]
 
     weatherSubset <- weather2015[weather2015$Datetime == currentDateTime, ]
 
@@ -77,8 +78,7 @@ createTestData <- function(stationNum){
     currentDateTime <- nextDateTime
   }
 
-  assign(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL), rent_TestDF)
-  #return(rent_TestDF)
+  return(rent_TestDF)
 }
 
 

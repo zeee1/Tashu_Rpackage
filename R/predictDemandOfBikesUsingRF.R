@@ -13,7 +13,7 @@
 #' testData <- createTestData(3)
 #' predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
 
-predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance, numOftree, type) {
+predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALSE, numOftree, type = 1) {
     # trainData :
     #trainData <- get(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL))
 
@@ -29,7 +29,7 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance, numOf
 
     if (type == 0) {
         # randomForest classification
-        rfModel <- randomForest(as.factor(rentCount) ~ season + rentMonth + rentHour + rentWeekday + temperature + humidity + rainfall + isFestival, data = trainData, ntree = numOfNtree,
+        rfModel <- randomForest(as.factor(rentCount) ~ season + rentMonth + rentHour + rentWeekday + temperature + humidity + rainfall + isFestival, data = trainData, ntree = numOftree,
             importance = isImportance)
 
         for (i_month in monthList) {
