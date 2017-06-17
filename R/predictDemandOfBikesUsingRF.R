@@ -43,7 +43,7 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
         #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
         # write.csv(testData, file = paste('station',toString(stationNum),'_rf_classification_result.csv',sep = '', collapse = NULL), row.names = F)
 
-    } else {
+    } else if(type == 1){
         # randomForest regression
         rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOftree, importance = isImportance)
         for (i_month in monthList) {
@@ -55,6 +55,8 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
 
         #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
         # write.csv(testData, file = paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
+    } else{
+
     }
 
 
