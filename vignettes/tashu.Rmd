@@ -115,6 +115,7 @@ This package provide some functions that analyze bike usage pattern. Time and we
 
 ## 4. Prediction
  이 패키지에선, 랜덤 포레스트를 이용한 자전거 사용량 예측을 예제로 제공한다. 사용자들은 n번 정류소의 자전거 대여량을 예측하기 위해서, "학습 데이터 생성 → 예측 모델 수립 → 테스트 데이터 대입 → 예측 결과 확인" 의 과정을 거쳐야 한다.
+ This package provides predicion source code using Random Forest as example source code. To predict the number of bike rental in "stationNum" station, User
 
 1.    createTrainData(stationNum)
 : 이 함수는 랜덤 포레스트 예측 모델을 구현하기 위해 사용될 학습 데이터를 생성한다. 이 함수는 2013 ~ 2014 년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.

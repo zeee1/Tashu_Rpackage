@@ -2,12 +2,12 @@
 % Please edit documentation in R/getAmountOfRentalEachMonth.R
 \name{getAmountOfRentalEachMonth}
 \alias{getAmountOfRentalEachMonth}
-\title{Get monthly amount of rental for 3 years.}
+\title{Get monthly amount of bike rental from 2013 to 2015.}
 \usage{
 getAmountOfRentalEachMonth()
 }
 \description{
-Get monthly amount of rental for 3 years.
+Draw a plot that visualize monthly average amount of bike rental from 2013 to 2015.
 }
 \examples{
 getAmountOfRentalEachMonth()

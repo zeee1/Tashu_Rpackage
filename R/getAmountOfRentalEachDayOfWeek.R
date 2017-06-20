@@ -61,9 +61,11 @@ getAmountOfRentalEachDayOfWeek <- function() {
                 aes(x = Var2, y = Var1, fill = value))
   zp1 <- zp1 + geom_tile()
   zp1 <- zp1 + scale_fill_gradientn(colours = myPalette(100))
-  zp1 <- zp1 + scale_x_discrete(expand = c(0, 0))
-  zp1 <- zp1 + scale_y_discrete(expand = c(0, 0))
+  #zp1 <- zp1 + scale_x_discrete(expand = c(0, 0))
+  #zp1 <- zp1 + scale_y_discrete(expand = c(0, 0))
   zp1 <- zp1 + coord_equal()
   zp1 <- zp1 + theme_bw()
+  zp1 <- zp1 + xlab("Hour")
+  zp1 <- zp1 + ylab("day Of Week")
   print(zp1)
 }
