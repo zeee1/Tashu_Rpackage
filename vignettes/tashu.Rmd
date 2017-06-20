@@ -13,20 +13,17 @@ vignette: >
   As the public bicycle system expands, the scale of relocation work is also growing. If the relocation work is not done at the right time, there will be an unbalanced situation where there is no bike in station that rental is mainly made. In order to find the time when relocation work is required, It is necessary to analyze the bicycle rental history to grasp the usage patterns of the citizens. We can check The change of bicycle usage according to time, weather, and festival condition and predict the bicycle demand at each station.
   This package provides bicycle rental history data on Tashu from 2013 to 2015, analytic source code, and prediction for demand using random forest algorithm. 
   
- (공공 자전거 시스템의 현 상황)
- 세계 주요 도시는 녹색대중교통수단으로 공공 자전거 시스템을 운영하고 있다. 공공 자전거 시스템은 대중교통 수요 분산, 시민들의 운동량 증대의 효과를 이끌어 내고 있다. 대전시 또한 2012년부터 타슈라는 공공 자전거 시스템을 운영하고 있으며 활용도를 높이기 위한 연구를 행하고 있다.
- (분석&예측의 필요성)
- 공공 자전거 시스템이 확대되면서 재배치 작업의 규모도 커지고 있다. 재배치 작업이 알맞은 시간에 이루어지지 않으면 대여가 주로 이루어지는 정류소에 자전거가 부족하거나 반납이 주로 이루어지는 정류소에 반납할 자리가 없는 불균형 상황이 생긴다. 각 정류소 별로 재배치 작업이 필요한 시점을 찾기 위해, 자전거 대여 이력을 분석하여 시민들의 이용 패턴을 파악해야 한다. 시간, 기상, 축제 상태에 따른 자전거 사용량 변화를 확인하고 이에 따른 자전거 수요를 예측한다.
- (이 패키지 소개)
- 이 패키지는 2013 ~ 2015 년도 타슈 대여 이력 데이터와 분석 소스, 랜덤 포레스트 알고리즘을 이용한 예측 소스를 제공한다. 데이터를 이용하여 자유롭게 자전거 사용 패턴을 분석하고 예측할 수 있다.
  
  (현재 상황 - 공공 자전거 시스템을 도입하는 곳이 많다)
  세계 주요 도시는 녹색대중교통수단으로 공공 자전거 시스템을 운영하며 이는 대중교통 수요 분산, 시민들의 운동량 증대의 효과를 내고 있다.
- (문제 상황)
- 공공 자전거 시스템에서 재배치 작업이 사전에 이루어지지 않으면, 대여가 많이 이루어지는 정류소에 자전거가 없거나 반납이 많이 이루어지는 정류소에 반납할 자리가 없는 불균형 상황이 생길 수 있다. 자전거 시스템이 커질 수록 재배치 작업의 로드 또한 커질 것이다. 작업의 효율성을 높이기 위한 방법을 찾아야 한다.
- (해결 방법 제안)
- 자전거 대여 이력 분석을 통해 시민들의 자전거 사용 패턴을 파악하고 수요가 많을 정류소를 확인하는 방법이 있다. 자전거 대여량에 영향을 주는 요인들을 파악하여 그에 따른 자전거 대여량 변화를 확인한다.
  
+ Major cities in the world operate public bicycle systems as green public transportation. Public bicycle system is leading to the effect of the dispersion of public transportation demand and the increase of the citizens' momentum.
+ (문제 상황)
+ 공공 자전거 시스템에서 대여가 많이 이루어지는 정류소에 자전거가 없거나 반납이 많이 이루어지는 정류소에 반납할 자리가 없는 불균형 상황이 생길 수 있다. 이런 상황을 해소하기 위해선 자전거 재배치 작업이 사전에 이루어져야 한다. 공공 자전거 시스템이 커질 수록 재배치 작업의 로드 또한 커지고 있으며, 작업의 효율성을 높이기 위한 방안이 수립될 필요가 있다.
+ 
+ 
+ (해결 방법 제안)
+ 자전거 대여 이력 분석을 통해 시민들의 자전거 사용 패턴을 파악하고 각 정류소의 수요를 대략적으로 어림잡을 수 있다. 자전거 대여량에 영향을 주는 요인들을 파악하여 그에 따른 자전거 대여량 변화를 확인한다.
  (해결 방법 소개)
  (해결 방법)
  (결과)
@@ -44,7 +41,16 @@ load(file = "../data/tashu2013.rda")
 head(tashu2013, n = 5)
 ```
 
-1.    Weather Data
+2.    Tashu Station Data
+: By 2014 there were 144 bicycle stations and a new one in 2015, currently operating 244 stations. In this study, only the existing data of 144 stop stations are considered. Data is consisted of "NUM(Number of station), KIOSKNUM(Number of Kiosk), DISTRICT(District where Station is located), Name(Name of station), LOCATION(Location of station), NUMOFBIKE_RACK(Number of Bike rack), GEODATA_lat(Latitude of station), GEODATA_lon(Longitude of station)"
+
+* tashuStationData : data of 144 Stations on Tashu system. 
+```{r}
+load(file = "../data/tashuStationData.rda")
+head(tashuStationData, n = 5)
+```
+
+3.    Weather Data
 : Weather Data In Daejeon from 2013 to 2015. Data is consisted of "datetime, temperature, rainfall, windspeed, wind direction, humidity, Dew point temperature, Local Pressure, Sea surface Pressure, Sunshine, Solar Radiation, Snowfall, Ground Temperature"
 
 * weather2013 : Weather Data In Daejeon, 2013
@@ -56,23 +62,13 @@ load(file = "../data/weather2013.rda")
 head(weather2013, n = 5)
 ```
 
-1.    Festival Data
+4.    Festival Data
 : Festival Data In Daejeon from 2013 to 2015. Data is consisted of "Festival(Name of festival), Location(Location of festival), nearStation(bike station affected by festival), startDate(festival starting date time), endDate(festival ending date time)"
 ```{r}
 load(file = "../data/festivalData.rda")
 head(festivalData, n = 5)
 ```
 
-1.    Tashu Station Data
-: By 2014 there were 144 bicycle stations and a new one in 2015, currently operating 244 stations. In this study, only the existing data of 144 stop stations are considered. Data is consisted of "NUM(Number of station), KIOSKNUM(Number of Kiosk), DISTRICT(District where Station is located), Name(Name of station), LOCATION(Location of station), NUMOFBIKE_RACK(Number of Bike rack), GEODATA_lat(Latitude of station), GEODATA_lon(Longitude of station)"
-
-2014 년도까지 자전거 정류소는 144개가 있었고 2015년도에 새로 신설되어 현재 244개의 스테이션을 운영중이다. 본 연구에서는 기존의 144개 정류소 데이터만을 대상으로 한다. 데이터는 "스테이션 번호, 키오스크 번호, 구, 스테이션 명, 스테이션 위치, 스테이션 주소, 자전거 거치대 수, 스테이션 위도, 스테이션 경도"로 구성되어 있다.
-
-* tashuStationData : data of 144 Stations on Tashu system. 
-```{r}
-load(file = "../data/tashuStationData.rda")
-head(tashuStationData, n = 5)
-```
 
 
 ## 3. Analysis
@@ -103,54 +99,29 @@ This package provide some functions that analyze bike usage pattern. Time and we
 ```
 
 1.    getAmountOfRentalEachDayOfWeek()
-1.    get
+: This function show bike usage pattern in each day of week.
+```{r}
+#library(Tashu)
+#getAmountOfRentalEachMonth()
+```
+
+1.    getUsageByTemperature()
+: This function show the change of bike usage pattern according to Temperature.
+```{r}
+#library(Tashu)
+#getAmountOfRentalEachMonth()
+```
+
+
 ## 4. Prediction
+ 이 패키지에선, 랜덤 포레스트를 이용한 자전거 사용량 예측을 예제로 제공한다. 사용자들은 n번 정류소의 자전거 대여량을 예측하기 위해서, "학습 데이터 생성 → 예측 모델 수립 → 테스트 데이터 대입 → 예측 결과 확인" 의 과정을 거쳐야 한다.
+
+1.    createTrainData(stationNum)
+: 이 함수는 랜덤 포레스트 예측 모델을 구현하기 위해 사용될 학습 데이터를 생성한다. 이 함수는 2013 ~ 2014 년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.
 
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+2.    createTestData(stationNum)
+: 이 함수는 구현된 예측 모델에게 예측을 위한 조건 데이터를 제공하는 테스트 데이터를 생성한다. 2015년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+3.    predictDemandOfBikesUsingRF(trainData, testData, isImportance, numOfTree, type)
+: 이 함수는 trainData와 testData를 파라미터로 받아 stationNum 정류소에서의 자전거 사용량 예측을 전반적으로 수행하는 함수이다. trainData로 랜덤 포레스트 예측 모델을 구현한다. 그 후 테스트 데이터의 예측 결과 값을 

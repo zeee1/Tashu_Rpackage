@@ -48,7 +48,8 @@ getTop10Stations <- function() {
                          markers = data.frame(lon = resultDF$lon, lat = resultDF$lat),
                          maptype = "roadmap") %>% ggmap
     map <- map+
-      geom_text(data = resultDF, aes(label = station))
+      geom_text(data = resultDF, aes(label = station))+
+      scale_size(range = c(0,10))
 
     multiplot(barchart, map)
 
