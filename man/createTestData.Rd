@@ -10,11 +10,11 @@ createTestData(stationNum)
 \item{stationNum}{number that means the number of each station.(1 ~ 144)}
 }
 \value{
-a data frame that contains test Data in "stationNum" station, 2015
+a data frame that contains test Data in 'stationNum' station, 2015
 columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
 }
 \description{
-Create testing data frame in "stationNum" bike station by preprocessing bike rental history, weather and festival data in 2015.
+Create testing data frame in 'stationNum' bike station by preprocessing bike rental history, weather and festival data in 2015.
 }
 \examples{
 createTrainData(1)

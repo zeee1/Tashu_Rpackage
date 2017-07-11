@@ -76,8 +76,8 @@ This package provide some functions that analyze bike usage pattern. Time and we
 : This function presents top 10 stations that have most number of bike rental for 3 years.
 
 ```{r}
-library(Tashu)
-getTop10Stations()
+#library(Tashu)
+#getTop10Stations()
 ```
 
 2.    getTop10Pathes()

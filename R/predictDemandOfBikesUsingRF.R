@@ -1,6 +1,6 @@
 #' Predict hourly Demand of Bike in 2015.
 #'
-#' predict hourly amount of bike rental in 2015 using random forest algorithm. Create prediction model using "trainData" and forecast demand of bike rental according to the condition of "testData"
+#' predict hourly amount of bike rental in 2015 using random forest algorithm. Create prediction model using 'trainData' and forecast demand of bike rental according to the condition of 'testData'
 #'
 #' @param trainData training data for creating prediction model
 #' @param testData testing data.
@@ -14,11 +14,9 @@
 #' predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
 
 predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALSE, numOftree, type = 1) {
-    # trainData :
-    #trainData <- get(paste("station_", toString(stationNum), "_rentTrainDF", sep = "", collapse = NULL))
+    # trainData : trainData <- get(paste('station_', toString(stationNum), '_rentTrainDF', sep = '', collapse = NULL))
 
-    # testData :
-    #testData <- get(paste("station_", toString(stationNum), "_rentTestDF", sep = "", collapse = NULL))
+    # testData : testData <- get(paste('station_', toString(stationNum), '_rentTestDF', sep = '', collapse = NULL))
 
     monthList <- unique(trainData$rentMonth)
     monthList <- monthList[!is.na(monthList)]
@@ -29,8 +27,8 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
 
     if (type == 0) {
         # randomForest classification
-        rfModel <- randomForest(as.factor(rentCount) ~ season + rentMonth + rentHour + rentWeekday + temperature + humidity + rainfall + isFestival, data = trainData, ntree = numOftree,
-            importance = isImportance)
+        rfModel <- randomForest(as.factor(rentCount) ~ season + rentMonth + rentHour + rentWeekday + temperature + humidity + rainfall + isFestival,
+            data = trainData, ntree = numOftree, importance = isImportance)
 
         for (i_month in monthList) {
             locs <- testData$rentMonth == i_month
@@ -40,10 +38,10 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
             testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
         }
 
-        #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
-        # write.csv(testData, file = paste('station',toString(stationNum),'_rf_classification_result.csv',sep = '', collapse = NULL), row.names = F)
+        # assign(paste('station_', toString(stationNum), '_TestDF', sep = '', collapse = NULL), testData) write.csv(testData, file =
+        # paste('station',toString(stationNum),'_rf_classification_result.csv',sep = '', collapse = NULL), row.names = F)
 
-    } else if(type == 1){
+    } else if (type == 1) {
         # randomForest regression
         rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOftree, importance = isImportance)
         for (i_month in monthList) {
@@ -53,9 +51,9 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
             testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
         }
 
-        #assign(paste("station_", toString(stationNum), "_TestDF", sep = "", collapse = NULL), testData)
-        # write.csv(testData, file = paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
-    } else{
+        # assign(paste('station_', toString(stationNum), '_TestDF', sep = '', collapse = NULL), testData) write.csv(testData, file =
+        # paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
+    } else {
 
     }
 
@@ -64,8 +62,9 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
         imp <- importance(rfModel, type = 1)
         featureImportance <- data.frame(Feature = row.names(imp), Importance = imp[, 1])
 
-        ggplot(featureImportance, aes(x = reorder(Feature, Importance), y = Importance)) + geom_bar(stat = "identity", fill = "#53cfff") + coord_flip() + theme_light(base_size = 20) +
-            xlab("Importance") + ylab("") + ggtitle("Random Forest Feature Importance\n") + theme(plot.title = element_text(size = 18))
+        ggplot(
+          featureImportance, aes(x = reorder(Feature, Importance), y = Importance)) + geom_bar(stat = "identity", fill = "#53cfff") + coord_flip() +
+            theme_light(base_size = 20) + xlab("Importance") + ylab("") + ggtitle("Random Forest Feature Importance\n") + theme(plot.title = element_text(size = 18))
     }
 
     return(testData)
@@ -78,9 +77,9 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
 #'
 #' @param data testing data frame for prediction. Testing data frame is created by conducting createTestData()
 
-extractFeatures <- function(data){
-  features <- c ("season","rentMonth","rentHour", "rentWeekday","temperature", "humidity", "rainfall","isFestival")
+extractFeatures <- function(data) {
+    features <- c("season", "rentMonth", "rentHour", "rentWeekday", "temperature", "humidity", "rainfall", "isFestival")
 
-  return(data[, features])
+    return(data[, features])
 }
 
