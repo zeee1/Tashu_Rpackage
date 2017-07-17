@@ -17,5 +17,5 @@ columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humid
 Create testing data frame in 'stationNum' bike station by preprocessing bike rental history, weather and festival data in 2015.
 }
 \examples{
-createTrainData(1)
+testData <- createTestData(1)
 }

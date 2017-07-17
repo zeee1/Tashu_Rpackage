@@ -6,7 +6,7 @@
 #' @return a data frame that contains test Data in 'stationNum' station, 2015
 #' columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
 #' @examples
-#' createTrainData(1)
+#' testData <- createTestData(1)
 
 createTestData <- function(stationNum) {
     rentSubsetInTest <- tashu2015[tashu2015$RENT_STATION == stationNum, ]
