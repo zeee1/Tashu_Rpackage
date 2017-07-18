@@ -6,9 +6,12 @@
 \usage{
 getTop10Stations()
 }
+\value{
+Data frame that contains top 10 most used stations from 2013 to 2015
+}
 \description{
-Draw two plots that visualized most used top 10 stations on barchart and map.
+Draw a plot that visualized most used top 10 stations on barchart.
 }
 \examples{
-getTop10Stations()
+top10StationsData <- getTop10Stations()
 }

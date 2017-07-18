@@ -1,59 +1,14 @@
 #' Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.
 #'
+#' @return data frame that contains most used top 10 pathes from 2013 to 2015
 #' @examples
-#' getTop10Pathes()
+#' top10PathesData <- getTop10Pathes()
 
 getTop10Pathes <- function() {
-    stationList <- c(1:144)
-    resultDF <- data.frame(RENT_STATION = as.integer(), RETURN_STATION = as.integer(), count = as.integer())
+    trace_cnt <- data.frame(table(tashuDataFor3year$RENT_STATION, tashuDataFor3year$RETURN_STATION))
+    names(trace_cnt) <- c("RENT_STATION", "RETURN_STATION", "COUNT")
+    sort_trace_cnt <- head(trace_cnt[order(-trace_cnt$COUNT),],20)
+    ggplot() + geom_point(aes(x = RENT_STATION, y = RETURN_STATION, size = COUNT), data = sort_trace_cnt)
 
-    for (i_station in stationList) {
-        rentStationSubset <- tashuDataFor3year[tashuDataFor3year$RENT_STATION == i_station, ]
-
-        for (j_station in stationList) {
-            returnStationSubset <- rentStationSubset[rentStationSubset$RETURN_STATION == j_station, ]
-            resultDF <- rbind(resultDF, data.frame(RENT_STATION = i_station, RETURN_STATION = j_station, count = NROW(returnStationSubset)))
-        }
-    }
-
-    resultDF <- arrange(resultDF, desc(count))
-    resultDF <- head(resultDF, n = 10)
-
-    resultDF$Rent_lon <- NA
-    resultDF$Rent_lat <- NA
-
-    resultDF$Return_lon <- NA
-    resultDF$Return_lat <- NA
-
-    for (rentStat in resultDF$RENT_STATION) {
-        resultDF[resultDF$RENT_STATION == rentStat, ]$Rent_lon <- tashuStationData[tashuStationData$NUM == rentStat, ]$GEODATA_lon
-        resultDF[resultDF$RENT_STATION == rentStat, ]$Rent_lat <- tashuStationData[tashuStationData$NUM == rentStat, ]$GEODATA_lat
-    }
-
-    for (returnStat in resultDF$RETURN_STATION) {
-        resultDF[resultDF$RETURN_STATION == returnStat, ]$Return_lon <- tashuStationData[tashuStationData$NUM == returnStat, ]$GEODATA_lon
-        resultDF[resultDF$RETURN_STATION == returnStat, ]$Return_lat <- tashuStationData[tashuStationData$NUM == returnStat, ]$GEODATA_lat
-    }
-
-    # Todo : Create pathList(station, lon, lat, check)
-    resultDF$index <- c(1:10)
-    pathList <- data.frame(station = as.integer(), lon = as.integer(), lat = as.integer(), check = as.integer())
-
-    for (index in 1:10) {
-        path <- resultDF[resultDF$index == index, ]
-        pathList <- rbind(pathList, data.frame(station = path$RENT_STATION, lon = path$Rent_lon, lat = path$Rent_lat, check = index))
-        pathList <- rbind(pathList, data.frame(station = path$RETURN_STATION, lon = path$Return_lon, lat = path$Return_lat, check = index))
-    }
-
-
-    map <- get_googlemap(center = c(lon = 127.361197, lat = 36.358494), zoom = 13, markers = data.frame(lon = pathList$lon, lat = pathList$lat), maptype = "roadmap") %>%
-        ggmap
-    map <- map + geom_text(data = pathList, aes(label = station))
-
-    for (index in 1:10) {
-        path <- pathList[pathList$check == index, ]
-        map <- map + geom_line(data = pathList, aes(x = lon, y = lat))
-    }
-
-    map
+    return(sort_trace_cnt)
 }

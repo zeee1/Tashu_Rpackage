@@ -61,9 +61,6 @@
 #' \describe{
 #'   \item{NUM}{station Number}
 #'   \item{KIOSKNUM}{station Number}
-#'   \item{DISTRICT}{district where the station is located}
-#'   \item{LOCATION}{station location}
-#'   \item{ADDRESS}{station address}
 #'   \item{NUMOFBIKESIT}{the number of bike holder}
 #'   \item{GEODATA_lat}{latitude of bike station}
 #'   \item{GEODATA_lon}{longitude of bike station}
@@ -155,8 +152,6 @@
 #'
 #' @format A data frame with 116 rows and 5 variables:
 #' \describe{
-#'   \item{Festival}{The name of Festival}
-#'   \item{Location}{The festival Location}
 #'   \item{nearStation}{tashu station near the festival location}
 #'   \item{startDate}{datetime when festival start}
 #'   \item{endDate}{datetime when festival end}
