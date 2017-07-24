@@ -60,8 +60,7 @@
 #' @format A data frame with 144 rows and 9 variables:
 #' \describe{
 #'   \item{NUM}{station Number}
-#'   \item{KIOSKNUM}{station Number}
-#'   \item{NUMOFBIKESIT}{the number of bike holder}
+#'   \item{NumOFBIKE_RACK}{the number of bike rack}
 #'   \item{GEODATA_lat}{latitude of bike station}
 #'   \item{GEODATA_lon}{longitude of bike station}
 #' }
@@ -74,6 +73,7 @@
 #'
 #' @format A data frame with 8760 rows and 18 variables:
 #' \describe{
+#'   \item{Datetime}{date time in 2013}
 #'   \item{Temperature}{Average temperature}
 #'   \item{Rainfall}{Rainfall}
 #'   \item{WindSpeed}{Wind Speed(m/s)}
@@ -100,6 +100,7 @@
 #'
 #' @format A data frame with 8760 rows and 18 variables:
 #' \describe{
+#'   \item{Datetime}{date time in 2014}
 #'   \item{Temperature}{Average temperature}
 #'   \item{Rainfall}{Rainfall}
 #'   \item{WindSpeed}{Wind Speed(m/s)}
@@ -126,6 +127,7 @@
 #'
 #' @format A data frame with 8760 rows and 18 variables:
 #' \describe{
+#'   \item{Datetime}{date time in 2015}
 #'   \item{Temperature}{Average temperature}
 #'   \item{Rainfall}{Rainfall}
 #'   \item{WindSpeed}{Wind Speed(m/s)}

@@ -7,11 +7,7 @@
 \format{A data frame with 144 rows and 9 variables:
 \describe{
   \item{NUM}{station Number}
-  \item{KIOSKNUM}{station Number}
-  \item{DISTRICT}{district where the station is located}
-  \item{LOCATION}{station location}
-  \item{ADDRESS}{station address}
-  \item{NUMOFBIKESIT}{the number of bike holder}
+  \item{NumOFBIKE_RACK}{the number of bike rack}
   \item{GEODATA_lat}{latitude of bike station}
   \item{GEODATA_lon}{longitude of bike station}
 }}

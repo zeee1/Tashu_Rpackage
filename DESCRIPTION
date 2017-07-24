@@ -1,6 +1,6 @@
 Package: Tashu
 Type: Package
-Title: Usage Pattern Analysis and Demand Forecasting on Public Bicycle System('Tashu') in Daejeon, South Korea.
+Title: Usage Pattern Analysis and Demand Forecasting on Public Bicycle System('Tashu') in Daejeon, South Korea
 Version: 1.0.0
 Author: person("Jiwon", "Min", email = "miw5281@gmail.com")
 Maintainer: Jiwon Min <miw5281@gmail.com>

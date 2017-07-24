@@ -6,6 +6,7 @@
 \title{weather data In Daejeon, 2013}
 \format{A data frame with 8760 rows and 18 variables:
 \describe{
+  \item{Datetime}{date time in 2013}
   \item{Temperature}{Average temperature}
   \item{Rainfall}{Rainfall}
   \item{WindSpeed}{Wind Speed(m/s)}

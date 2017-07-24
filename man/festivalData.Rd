@@ -6,8 +6,6 @@
 \title{festival data In Daejeon from 2013 to 2015}
 \format{A data frame with 116 rows and 5 variables:
 \describe{
-  \item{Festival}{The name of Festival}
-  \item{Location}{The festival Location}
   \item{nearStation}{tashu station near the festival location}
   \item{startDate}{datetime when festival start}
   \item{endDate}{datetime when festival end}
