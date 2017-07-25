@@ -20,7 +20,7 @@ createTestData <- function(stationNum) {
         temperature = integer(), humidity = integer(), rainfall = integer(), isFestival = character(), RrentCount = integer(), PrentCount = integer())
 
 
-    startDateTime <- ymd_hms(2.0150101e+13)
+    startDateTime <- ymd_hms(20150101000000)
     endDateTime <- ymd_hms(20151231230000)
     currentDateTime <- startDateTime
 

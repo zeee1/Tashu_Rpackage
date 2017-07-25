@@ -40,7 +40,7 @@ getUsageByTemperature <- function() {
 
     # Draw temperature axis
     axis(2, ylim = c(0, 30), las = 1)
-    mtext("Average temperature(°C)", side = 2, line = 2.5)
+    mtext("Average temperature(Celsius)", side = 2, line = 2.5)
 
     # Allow a second plot on the same graph
     par(new = TRUE)

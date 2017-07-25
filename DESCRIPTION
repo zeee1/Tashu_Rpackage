@@ -10,9 +10,10 @@ Description: An implementation of analysis and prediction function on Public Bic
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
-Imports: ggplot2, dplyr, randomForest, lubridate, plyr, ggmap, reshape2, RColorBrewer
+Imports: ggplot2, dplyr, randomForest, lubridate, plyr, reshape2, RColorBrewer
 Suggests: knitr,
     rmarkdown,
-    testthat
+    testthat,
+    dplyr
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1

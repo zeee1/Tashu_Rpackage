@@ -6,12 +6,9 @@
 \usage{
 getTop10Pathes()
 }
-\value{
-data frame that contains most used top 10 pathes from 2013 to 2015
-}
 \description{
 Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.
 }
 \examples{
-top10PathesData <- getTop10Pathes()
+getTop10Pathes()
 }

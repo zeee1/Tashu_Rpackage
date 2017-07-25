@@ -3,7 +3,7 @@
 #' Draw a plot that visualized most used top 10 stations on barchart.
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
 #' @examples
-#' top10StationsData <- getTop10Stations()
+#' getTop10Stations()
 
 getTop10Stations <- function() {
   rent_cnt <- data.frame(table(tashuDataFor3year$RENT_STATION))
@@ -22,12 +22,4 @@ getTop10Stations <- function() {
   ggplot(sort_station_cnt, aes(x = reorder(station_no, total_cnt), y = total_cnt)) + geom_bar(data = sort_station_cnt, stat = "identity", fill = "#53cfff") +
         geom_text(aes(label = total_cnt)) + coord_flip() + theme_light(base_size = 20) + xlab("Station") + ylab("Count") + ggtitle("Most Heavily used Station In 2013 ~ 2015\n") +
         theme(plot.title = element_text(size = 18))
-
-  return(sort_station_cnt)
-  # Visualization 2
-  #map <- get_googlemap(center = c(lon = 127.367, lat = 36.363), zoom = 14, markers = data.frame(lon = resultDF$lon, lat = resultDF$lat), maptype = "roadmap") %>% ggmap
-  #map <- map + geom_text(data = resultDF, aes(label = station)) + scale_size(range = c(0, 10))
-
-  #multiplot(barchart, map)
-
 }
