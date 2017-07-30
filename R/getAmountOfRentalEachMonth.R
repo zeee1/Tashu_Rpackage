@@ -2,6 +2,8 @@
 #'
 #' Draw a plot that visualize monthly average amount of bike rental from 2013 to 2015.
 #'
+#' @export
+#'
 #' @examples
 #' getAmountOfRentalEachMonth()
 

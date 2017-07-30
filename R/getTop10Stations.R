@@ -2,6 +2,8 @@
 #'
 #' Draw a plot that visualized most used top 10 stations on barchart.
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
+#'
+#' @export
 #' @examples
 #' getTop10Stations()
 

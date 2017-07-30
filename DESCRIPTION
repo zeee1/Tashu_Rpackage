@@ -13,7 +13,8 @@ LazyData: true
 Imports: ggplot2, dplyr, randomForest, lubridate, plyr, reshape2, RColorBrewer
 Suggests: knitr,
     rmarkdown,
-    testthat
+    testthat,
+    lubridate
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)

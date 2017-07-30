@@ -1,4 +1,6 @@
 #' Get monthly amount of rental Each day of week
+#' @export
+#' @import RColorBrewer reshape2
 #'
 #' @examples
 #' getAmountOfRentalEachDayOfWeek()

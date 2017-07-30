@@ -8,6 +8,7 @@
 #' @param numOftree number of tree in random Forest
 #' @param type 0/1 0 for classification, 1 for regression.
 #' @return testData with predictive result.
+#' @export
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)

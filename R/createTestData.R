@@ -6,6 +6,7 @@
 #' @return a data frame that contains test Data in 'stationNum' station, 2015
 #' columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
 #' @export
+#' @import lubridate
 #' @examples
 #' testData <- createTestData(1)
 

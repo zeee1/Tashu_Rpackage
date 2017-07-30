@@ -1,5 +1,6 @@
 #' Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.
 #'
+#' @export
 #' @examples
 #' getTop10Pathes()
 
