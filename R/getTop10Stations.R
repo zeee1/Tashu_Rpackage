@@ -4,6 +4,7 @@
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
 #'
 #' @export
+#' @import ggplot2
 #' @examples
 #' getTop10Stations()
 

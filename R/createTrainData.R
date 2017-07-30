@@ -6,6 +6,7 @@
 #' @return a data frame that present hourly amount of bike rental in 'stationNum' station from 2013 to 2014.
 #' columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, festival, rental count
 #' @export
+#' @import lubridate
 #' @examples
 #' trainData <- createTrainData(1)
 

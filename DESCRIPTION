@@ -1,4 +1,4 @@
-Package: Tashu
+Package: tashu
 Type: Package
 Title: Usage Pattern Analysis and Demand Forecasting on Public Bicycle System('Tashu') in Daejeon, South Korea
 Version: 1.0.0
@@ -13,8 +13,7 @@ LazyData: true
 Imports: ggplot2, dplyr, randomForest, lubridate, plyr, reshape2, RColorBrewer
 Suggests: knitr,
     rmarkdown,
-    testthat,
-    lubridate
+    testthat
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
