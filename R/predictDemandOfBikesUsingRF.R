@@ -9,7 +9,7 @@
 #' @param type 0/1 0 for classification, 1 for regression.
 #' @return testData with predictive result.
 #' @export
-#' @import randomForest lubridate
+#' @import lubridate randomForest
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
@@ -55,10 +55,7 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
 
         # assign(paste('station_', toString(stationNum), '_TestDF', sep = '', collapse = NULL), testData) write.csv(testData, file =
         # paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
-    } else {
-
     }
-
 
     if (isImportance == TRUE) {
         imp <- importance(rfModel, type = 1)
