@@ -4,6 +4,7 @@
 #'
 #' @export
 #' @import lubridate
+#' @importFrom graphics axis legend mtext par plot
 #' @examples
 #' getUsageByTemperature()
 

@@ -2,6 +2,7 @@
 #'
 #' @export
 #' @import ggplot2 dplyr
+#' @importFrom utils head
 #' @examples
 #' getTop10Pathes()
 
