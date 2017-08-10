@@ -9,21 +9,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 ## 1. Introduction
- 세계 주요 도시는 녹색대중교통수단으로 공공 자전거 시스템을 운영하며 이는 대중교통 수요 분산, 시민들의 운동량 증대의 효과를 내고 있다.
- 
- Major cities in the world operate public bicycle systems as green public transportation. Public bicycle system is leading to the effect of the dispersion of public transportation demand and the increase of the citizens' momentum.
+ The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens' momentum. Through analyzing the history of bicycle rental in a city, you can check the patterns of bicycle use by citizens.By getting the time for which amount of the bike rental is increasing, it is possible to obtain a proper bike relocation work time and prevent the bicycle imbalance in advance. And By getting the mainly used routes, It can be used to select the location for new bicycle stop. This package provides bike rental history data and analysis functions of public bicycle system called 'Tashu' in Daejeon, South Korea. Bicycle rental history, stopping time information, weather data and Daejeon city festival data from 2013 to 2015 are provided  so that everyone can freely analyze patterns of bicycle use. It also provides basic analytic, statistical functions and function for prediction.
 
- 하지만, 공공 자전거 시스템에선 정류소에 대여할 자전거가 부족하거나 반납할 자리가 없는 불균형 상황이 생길 수 있다. 이런 상황을 사전에 방지하기 위해 자전거 재배치 작업을 행하는 방법이 있다. 공공 자전거 시스템이 커질 수록 재배치 작업의 로드 또한 커지기 때문에, 작업의 효율성을 높이기 위한 방안이 연구될 필요가 있다.
- 
- However, in a public bicycle system, there may be an imbalance in which there is not enough the bicycle to be rented at the station or there is no place to return it. In order to prevent such a situation in advance, there is a method of carrying out a bicycle relocation work. As the public bicycle system grows, the load of relocation work also increases, so a way to increase the efficiency of the work needs to be studied.
- 
- 우선, 자전거 대여 이력 분석을 통해 시민들의 자전거 사용 패턴을 파악해야 한다. 그로 인해, 각 정류소의 수요를 대략적으로 어림잡을 수 있다. 자전거 대여량에 영향을 주는 요인들을 파악하여 그에 따른 자전거 대여량 변화를 확인한다.
- 
- First, we need to analyze bicycle usage patterns through citizen's bicycle rental history analysis. Therefore, it is possible to roughly estimate the demand of bike rental each stopping point. Identifying the factors that affect the amount of bicycle rental, We should check the change of bicycle rental amount accordingly.
-
- 두 번째로, 자전거 사용량을 예측하여 각 정류소의 재배치 작업 시간을 결정하는 방법이 있다. 이 패키지는 랜덤 포레스트를 활용한 자전거 사용량 예측 함수를 제공한다. 계절, 월, 시간, 요일, 기온, 습도, 강수량, 축제 영향 여부를 feature로 지정하여 그에 따른 자전거 사용량을 예측하였다.
-
- Second, there is a method of predicting the amount of bicycle usage and determining the relocation work time of each stopping point. This package provides a bicycle usage prediction function using Random Forest. We selected the season, month, hour, day of week, temperature, humidity, rainfall, and festival effect as feature and predicted demand of bike rental accordingly.
 
 ## 2. Data
 1.    Tashu Data

@@ -1,7 +1,10 @@
 #' Get monthly amount of rental Each day of week
 #' @export
-#' @import ggplot2 RColorBrewer reshape2 lubridate
+#' @import ggplot2 RColorBrewer
+#' @importFrom reshape2 melt
+#' @importFrom lubridate ymd_hms wday hours month hour
 #' @importFrom grDevices colorRampPalette
+#' @importFrom stats rnorm
 #'
 #' @examples
 #' getAmountOfRentalEachDayOfWeek()

@@ -9,7 +9,9 @@
 #' @param type 0/1 0 for classification, 1 for regression.
 #' @return testData with predictive result.
 #' @export
-#' @autoimport lubridate randomForest
+#' @import lubridate
+#' @importFrom randomForest importance randomForest
+#' @importFrom stats predict reorder
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
