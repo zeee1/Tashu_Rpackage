@@ -7,9 +7,11 @@
 #' columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
 #' @export
 #' @importFrom lubridate ymd_hms wday hours month hour
+#' @importFrom utils globalVariables
 #' @examples
 #' testData <- createTestData(1)
 
+utils::globalVariables('tashu2015')
 createTestData <- function(stationNum) {
     rentSubsetInTest <- tashu2015[tashu2015$RENT_STATION == stationNum, ]
 
