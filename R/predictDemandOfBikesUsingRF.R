@@ -9,7 +9,7 @@
 #' @param type 0/1 0 for classification, 1 for regression.
 #' @return testData with predictive result.
 #' @export
-#' @import lubridate
+#' @import ggplot2
 #' @importFrom randomForest importance randomForest
 #' @importFrom stats predict reorder
 #' @examples

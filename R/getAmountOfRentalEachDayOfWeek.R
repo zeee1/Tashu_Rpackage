@@ -1,6 +1,8 @@
+
+
 #' Get monthly amount of rental Each day of week
 #' @export
-#' @import ggplot2 RColorBrewer
+#' @import RColorBrewer ggplot2
 #' @importFrom reshape2 melt
 #' @importFrom lubridate ymd_hms wday hours month hour
 #' @importFrom grDevices colorRampPalette
@@ -26,18 +28,6 @@ getAmountOfRentalEachDayOfWeek <- function() {
             resultDF <- rbind(resultDF, data.frame(weekday = i_weekday, hour = i_hour, count = NROW(hourSubset)))
         }
     }
-
-    ## Get number of rental in Weekday locs <- resultDF$weekday <= 5 weekdayData <- resultDF[locs, ] hourlyMeanOfDemandInWeekday <- ddply(weekdayData,
-    ## .(hour), summarise, count = mean(count), check = 'weekday')
-
-    ## Get number of rental in Weekend locs <- resultDF$weekday >= 6 weekendData <- resultDF[locs, ] hourlyMeanOfDemandInWeekendDay <-
-    ## ddply(weekendData, .(hour), summarise, count = mean(count), check = 'weekend')
-
-    ## resultDF <- hourly Mean of Demand In each day of week resultDF <- rbind(hourlyMeanOfDemandInWeekday, hourlyMeanOfDemandInWeekendDay)
-
-    ## Visualize ggplot(resultDF, aes(x = hour, y = count, color = check)) + geom_point(data = hourlyMeanOfDemandInWeekday, aes(group = check)) +
-    ## geom_line(data = hourlyMeanOfDemandInWeekday, aes(group = check)) + geom_point(data = hourlyMeanOfDemandInWeekendDay, aes(group = check)) +
-    ## geom_line(data = hourlyMeanOfDemandInWeekendDay, aes(group = check))
 
     nRow <- 7
     nCol <- 19

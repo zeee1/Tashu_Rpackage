@@ -1,3 +1,5 @@
+
+
 #' Create testing data frame for prediction.
 #'
 #' Create testing data frame in 'stationNum' bike station by preprocessing bike rental history, weather and festival data in 2015.
@@ -11,7 +13,6 @@
 #' @examples
 #' testData <- createTestData(1)
 
-utils::globalVariables('tashu2015')
 createTestData <- function(stationNum) {
     rentSubsetInTest <- tashu2015[tashu2015$RENT_STATION == stationNum, ]
 

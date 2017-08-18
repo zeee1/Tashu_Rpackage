@@ -63,36 +63,36 @@ This package provide some functions that analyze bike usage pattern. Time and we
 : This function presents top 10 stations that have most number of bike rental for 3 years.
 
 ```{r}
-#library(Tashu)
-#getTop10Stations()
+library(tashu)
+getTop10Stations()
 ```
 
 2.    getTop10Pathes()
 : This function presents top 10 pathes that have mostly used for 3 years.
 ```{r}
-#library(Tashu)
-#getTop10Pathes()
+library(tashu)
+getTop10Pathes()
 ```
 
 3.    getAmountOfRentalEachMonth()
 : This function show average amount of bike rental in each months.
 ```{r}
-#library(Tashu)
-#getAmountOfRentalEachMonth()
+library(tashu)
+getAmountOfRentalEachMonth()
 ```
 
 4.    getAmountOfRentalEachDayOfWeek()
 : This function show bike usage pattern in each day of week.
 ```{r}
-#library(Tashu)
-#getAmountOfRentalEachMonth()
+library(tashu)
+getAmountOfRentalEachDayOfWeek()
 ```
 
 5.    getUsageByTemperature()
 : This function show the change of bike usage pattern according to Temperature.
 ```{r}
-#library(Tashu)
-#getAmountOfRentalEachMonth()
+library(tashu)
+getUsageByTemperature()
 ```
 
 

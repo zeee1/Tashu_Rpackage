@@ -3,7 +3,6 @@
 #' This function draw a plot that show change of average temperature and average bike rental ratio in each month.
 #'
 #' @export
-#' @import lubridate
 #' @importFrom graphics axis legend mtext par plot
 #' @examples
 #' getUsageByTemperature()

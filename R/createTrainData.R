@@ -1,3 +1,5 @@
+
+
 #' Create training Data for prediction In Station stationNum.
 #'
 #' Create training data frame in 'stationNum' bike station by preprocessing bike rental history, weather and festival data from 2013 to 2014.
@@ -6,7 +8,7 @@
 #' @return a data frame that present hourly amount of bike rental in 'stationNum' station from 2013 to 2014.
 #' columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, festival, rental count
 #' @export
-#' @importFrom lubridate ymd_hms wday hours month hour
+#' @importFrom lubridate ymd_hms wday hours month hour ymd_hm year
 #' @examples
 #' trainData <- createTrainData(1)
 
