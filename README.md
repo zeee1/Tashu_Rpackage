@@ -3,7 +3,7 @@
 Tashu
 =====
 
-The goal of Tashu is to ...
+이 패키지는 남한의 대전시에 있는 공공 자전거 시스템의 자전거 데이터와 분석 함수를 제공합니다. This package provides bike rental history and analysis function of public bike system('Tashu') in Daejeon, South Korea.
 
 Installation
 ------------
