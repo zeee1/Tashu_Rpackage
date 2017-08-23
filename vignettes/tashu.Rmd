@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 ## 1. Introduction
- The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens' momentum. Through analyzing the history of bicycle rental in a city, you can check the patterns of bicycle use by citizens.By getting the time for which amount of the bike rental is increasing, it is possible to obtain a proper bike relocation work time and prevent the bicycle imbalance in advance. And By getting the mainly used routes, It can be used to select the location for new bicycle stop. This package provides bike rental history data and analysis functions of public bicycle system called 'Tashu' in Daejeon, South Korea. Bicycle rental history, stopping time information, weather data and Daejeon city festival data from 2013 to 2015 are provided  so that everyone can freely analyze patterns of bicycle use. It also provides basic analytic, statistical functions and function for prediction.
+ The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens' momentum. Through analyzing the history of bicycle rental in a city, you can check the patterns of bicycle use by citizens. By getting the time for which amount of the bike rental is increasing, it is possible to obtain a proper bike relocation work time and prevent the bicycle imbalance in advance. And By getting the mainly used routes, It would be more easier to select the location for new bicycle stop. This package provides bike rental history data of public bicycle system called 'Tashu' in Daejeon, South Korea and analytic functions. Everyone can freely analyze patterns of bicycle use through Bicycle rental history, bicycle station information, weather data and Daejeon city festival data from 2013 to 2015. 
 
 
 ## 2. Data
@@ -56,41 +56,40 @@ head(festivalData, n = 5)
 
 ## 3. Analysis
 
-대전 시민들의 자전거 사용 패턴을 확인하기 위한 분석을 수행하였다. 자전거 사용량에 영향을 주는 요인으로 시간, 기상 상태를 선정하였다. 그에 따른 자전거 사용량 변화를 확인하였다.
-This package provide some functions that analyze bike usage pattern. Time and weather conditions were selected as factors affecting bicycle usage.
+This package provides some functions that analyze bike usage pattern. Time and weather conditions were selected as factors affecting bicycle usage.
 
 1.    getTop10Stations()
 : This function presents top 10 stations that have most number of bike rental for 3 years.
 
-```{r}
+```{r, fig.width=7,fig.height=8}
 library(tashu)
 getTop10Stations()
 ```
 
 2.    getTop10Pathes()
 : This function presents top 10 pathes that have mostly used for 3 years.
-```{r}
+```{r, fig.width=7,fig.height=8}
 library(tashu)
 getTop10Pathes()
 ```
 
 3.    getAmountOfRentalEachMonth()
-: This function show average amount of bike rental in each months.
-```{r}
+: This function shows average amount of bike rental in each months.
+```{r, fig.width=7,fig.height=8}
 library(tashu)
 getAmountOfRentalEachMonth()
 ```
 
 4.    getAmountOfRentalEachDayOfWeek()
-: This function show bike usage pattern in each day of week.
-```{r}
+: This function shows bike usage pattern in each day of week.
+```{r, fig.width=7,fig.height=8}
 library(tashu)
 getAmountOfRentalEachDayOfWeek()
 ```
 
 5.    getUsageByTemperature()
-: This function show the change of bike usage pattern according to Temperature.
-```{r}
+: This function shows the change of bike usage pattern according to Temperature.
+```{r, fig.width=7,fig.height=8}
 library(tashu)
 getUsageByTemperature()
 ```
@@ -99,7 +98,7 @@ getUsageByTemperature()
 ## 4. Prediction
  이 패키지는 랜덤 포레스트를 이용한 자전거 사용량 예측을 예제로 제공한다. 사용자들은 n번 정류소의 자전거 대여량을 예측하기 위해서, "학습 데이터 생성 → 예측 모델 수립 → 테스트 데이터 대입 → 예측 결과 확인" 의 과정을 거쳐야 한다.
  
- This package provides function that predict the demand of bike rental using Random Forest as example. Users must go through the process of "generating learning data → establishing a prediction model → assigning test data → confirming forecast results" in order to predict the amount of bicycle rental at the nth stop.
+ This package provides function that predict the demand of bike rental using Random Forest as example. Users must go through the process of "generating training data → establishing a prediction model → predicting test data → confirming forecast results" for prediction.
 
 1.    createTrainData(stationNum)
 : 이 함수는 랜덤 포레스트 예측 모델을 구현하는데 사용될 학습 데이터를 생성한다. 이 함수는 2013 ~ 2014 년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.
@@ -108,7 +107,6 @@ getUsageByTemperature()
 ```{r}
 #library(Tashu)
 #trainData <- createTrainData(1)
-#head(trainData, n = 5)
 ```
 
 2.    createTestData(stationNum)
@@ -119,7 +117,6 @@ getUsageByTemperature()
 ```{r}
 #library(Tashu)
 #testData <- createTestData(1)
-#head(testData, n = 5)
 ```
 
 3.    predictDemandOfBikesUsingRF(trainData, testData, isImportance, numOfTree, type)
@@ -133,5 +130,4 @@ getUsageByTemperature()
 #testData <- createTestData(1)
 #
 #resultData <- predictDemandOfBikesUsingRF(trainData, testData, isImportance = TRUE, numOfTree = 50, type = 1)
-#head(resultData, n = 5)
 ```
