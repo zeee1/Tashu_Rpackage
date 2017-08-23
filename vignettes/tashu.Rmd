@@ -101,33 +101,32 @@ getUsageByTemperature()
  This package provides function that predict the demand of bike rental using Random Forest as example. Users must go through the process of "generating training data → establishing a prediction model → predicting test data → confirming forecast results" for prediction.
 
 1.    createTrainData(stationNum)
-: 이 함수는 랜덤 포레스트 예측 모델을 구현하는데 사용될 학습 데이터를 생성한다. 이 함수는 2013 ~ 2014 년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.
-
- This function generates training data to be used to implement the random forest prediction model. This function prepares the bicycle rental history, weather, and festival data that occurred at stationNum stop in 2013 ~ 2014, and returns the following data frame. 
+: This function generates training data for the random forest prediction model. This function prepares the bicycle rental history, weather, and festival data that occurred at "stationNum" stop in 2013 ~ 2014, and returns the following data frame. 
 ```{r}
-#library(Tashu)
-#trainData <- createTrainData(1)
+library(tashu)
+trainData <- createTrainData(1)
+head(trainData, 10)
 ```
 
 2.    createTestData(stationNum)
 : 이 함수는 예측 모델이 예측을 하기 위한 feature 데이터를 제공하는 테스트 데이터를 생성한다. 2015년도에 stationNum 정류소에서 일어난 자전거 대여 이력과 날씨, 축제 데이터를 전처리하여 다음과 같은 데이터 프레임을 만들어 반환한다.
 
- This function generates testing data that provides feature data for the prediction model. Bike rental history at the stationNum th station, weather and festival data in 2015 are preprocessed and the following data frame is created and returned.
+ This function generates testing data that would be used for prediction. Bike rental history at the "stationNum" stop, weather and festival data in 2015 are preprocessed and the following data frame is created and returned.
  
 ```{r}
-#library(Tashu)
-#testData <- createTestData(1)
+library(tashu)
+testData <- createTestData(1)
+head(testData, 10)
 ```
 
 3.    predictDemandOfBikesUsingRF(trainData, testData, isImportance, numOfTree, type)
 : 이 함수는 trainData와 testData를 파라미터로 받아 stationNum 정류소에서의 자전거 사용량 예측을 수행한다. trainData로 랜덤 포레스트 예측 모델을 구현한다. 그 후 테스트 데이터를 예측 모델에 입력하여 자전거 사용량을 예측한다. isImportance를 TRUE로 설정할 시, stationNum 정류소에서의 feature importance를 구할 수 있다.
 
- This function takes the parameter trainData and testData as parameters and performs the bicycle usage prediction at stationNum stop. First, It implements the random forest prediction model with trainData and input testData to predict the demand of bike rental. If you set isImportance to TRUE, you can get the feature importance at the stationNum stop.
+ This function takes trainData and testData as parameters and performs prediction about amount of bike rental at stationNum stop. First, It implements the random forest prediction model with trainData and input testData to predict the demand of bike rental in 2015. If you set isImportance to TRUE, you can get the feature importance at the stationNum stop.
  
 ```{r}
-#library(Tashu)
-#trainData <- createTrainData(1)
-#testData <- createTestData(1)
-#
-#resultData <- predictDemandOfBikesUsingRF(trainData, testData, isImportance = TRUE, numOfTree = 50, type = 1)
+library(tashu)
+
+resultData <- predictDemandOfBikesUsingRF(trainData, testData, isImportance = TRUE, numOfTree = 50, type = 1)
+head(resultData, 10)
 ```
