@@ -4,24 +4,17 @@
 #'
 #' @param trainData training data for creating prediction model
 #' @param testData testing data.
-#' @param isImportance if TRUE, show a image that visualize feature importance in that station.
 #' @param numOftree number of tree in random Forest
-#' @param type 0/1 0 for classification, 1 for regression.
 #' @return testData with predictive result.
 #' @export
-#' @import ggplot2
 #' @importFrom randomForest importance randomForest
 #' @importFrom stats predict reorder
 #' @examples
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
-#' predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
+#' predictDemandOfBikesUsingRF(trainData, testData, numOftree = 50)
 
-predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALSE, numOftree, type = 1) {
-    # trainData : trainData <- get(paste('station_', toString(stationNum), '_rentTrainDF', sep = '', collapse = NULL))
-
-    # testData : testData <- get(paste('station_', toString(stationNum), '_rentTestDF', sep = '', collapse = NULL))
-
+predictDemandOfBikesUsingRF <- function(trainData, testData, numOftree = 50) {
     monthList <- unique(trainData$rentMonth)
     monthList <- monthList[!is.na(monthList)]
 
@@ -29,43 +22,13 @@ predictDemandOfBikesUsingRF <- function(trainData, testData, isImportance = FALS
         levels(testData$isFestival) <- levels(trainData$isFestival)
     }
 
-    if (type == 0) {
-        # randomForest classification
-        rfModel <- randomForest(as.factor(rentCount) ~ season + rentMonth + rentHour + rentWeekday + temperature + humidity + rainfall + isFestival,
-            data = trainData, ntree = numOftree, importance = isImportance)
+    # randomForest regression
+    rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOftree)
+    for (i_month in monthList) {
+      locs <- testData$rentMonth == i_month
+      monthlySubsetData <- testData[locs, ]
 
-        for (i_month in monthList) {
-            locs <- testData$rentMonth == i_month
-            monthlySubsetData <- testData[locs, ]
-            monthlySubsetData$rentCount <- monthlySubsetData$RrentCount
-
-            testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
-        }
-
-        # assign(paste('station_', toString(stationNum), '_TestDF', sep = '', collapse = NULL), testData) write.csv(testData, file =
-        # paste('station',toString(stationNum),'_rf_classification_result.csv',sep = '', collapse = NULL), row.names = F)
-
-    } else if (type == 1) {
-        # randomForest regression
-        rfModel <- randomForest(extractFeatures(trainData), trainData$rentCount, ntree = numOftree, importance = isImportance)
-        for (i_month in monthList) {
-            locs <- testData$rentMonth == i_month
-            monthlySubsetData <- testData[locs, ]
-
-            testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
-        }
-
-        # assign(paste('station_', toString(stationNum), '_TestDF', sep = '', collapse = NULL), testData) write.csv(testData, file =
-        # paste('station',toString(stationNum),'_rf_regression_result.csv',sep = '', collapse = NULL), row.names = F)
-    }
-
-    if (isImportance == TRUE) {
-        imp <- importance(rfModel, type = 1)
-        featureImportance <- data.frame(Feature = row.names(imp), Importance = imp[, 1])
-
-        ggplot(
-          featureImportance, aes(x = reorder(Feature, Importance), y = Importance)) + geom_bar(stat = "identity", fill = "#53cfff") + coord_flip() +
-            theme_light(base_size = 20) + xlab("Importance") + ylab("") + ggtitle("Random Forest Feature Importance\n") + theme(plot.title = element_text(size = 18))
+      testData[locs, "PrentCount"] <- predict(rfModel, extractFeatures(monthlySubsetData))
     }
 
     return(testData)

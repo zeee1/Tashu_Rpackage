@@ -48,7 +48,7 @@ getAmountOfRentalEachDayOfWeek <- function() {
     resultData <- melt(resultData)
     myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space = "Lab")
 
-    zp1 <- ggplot(resultData, aes(x = Var2, y = Var1, fill = value))
+    zp1 <- ggplot(resultData, aes_string(x = 'Var2', y = 'Var1', fill = 'value'))
     zp1 <- zp1 + geom_tile()
     zp1 <- zp1 + scale_fill_gradientn(colours = myPalette(100))
     # zp1 <- zp1 + scale_x_discrete(expand = c(0, 0)) zp1 <- zp1 + scale_y_discrete(expand = c(0, 0))

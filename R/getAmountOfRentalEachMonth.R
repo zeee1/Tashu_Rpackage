@@ -31,6 +31,6 @@ getAmountOfRentalEachMonth <- function() {
     options(scipen = 100)
 
     # Visualize
-    ggplot(resultDF, aes(x = month, y = ratio)) + geom_bar(data = resultDF, stat = "identity", aes(group = 1), fill = "#08d16c") + scale_x_discrete("Month",
+    ggplot(resultDF, aes_string(x = 'month', y = 'ratio')) + geom_bar(data = resultDF, stat = "identity", aes(group = 1), fill = "#08d16c") + scale_x_discrete("Month",
         limits = c(1:12)) + ggtitle("Monthly amount Of Rental In Tashu\n")
 }

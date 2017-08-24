@@ -21,7 +21,7 @@ This package provides bike rental history and analysis function of public bike s
 You can install Tashu from github with:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("zeee1/Tashu_Rpackage")
 ```
 

@@ -4,19 +4,14 @@
 \alias{predictDemandOfBikesUsingRF}
 \title{Predict hourly Demand of Bike in 2015.}
 \usage{
-predictDemandOfBikesUsingRF(trainData, testData, isImportance = FALSE,
-  numOftree, type = 1)
+predictDemandOfBikesUsingRF(trainData, testData, numOftree = 50)
 }
 \arguments{
 \item{trainData}{training data for creating prediction model}
 
 \item{testData}{testing data.}
 
-\item{isImportance}{if TRUE, show a image that visualize feature importance in that station.}
-
 \item{numOftree}{number of tree in random Forest}
-
-\item{type}{0/1 0 for classification, 1 for regression.}
 }
 \value{
 testData with predictive result.
@@ -27,5 +22,5 @@ predict hourly amount of bike rental in 2015 using random forest algorithm. Crea
 \examples{
 trainData <- createTrainData(3)
 testData <- createTestData(3)
-predictDemandOfBikesUsingRF(trainData, testData, TRUE, 50, 1)
+predictDemandOfBikesUsingRF(trainData, testData, numOftree = 50)
 }
