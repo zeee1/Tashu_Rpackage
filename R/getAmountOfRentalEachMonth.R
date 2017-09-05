@@ -1,5 +1,5 @@
 
-#' Get monthly amount of bike rental from 2013 to 2015.
+#' Visualize amount of bicycle rental at each month.
 #'
 #' Draw a plot that visualize monthly average amount of bike rental from 2013 to 2015.
 #'
@@ -7,7 +7,7 @@
 #' @importFrom lubridate ymd_hms wday hours month hour
 #' @import ggplot2
 #' @examples
-#' getAmountOfRentalEachMonth()
+#' \dontrun{getAmountOfRentalEachMonth()}
 
 getAmountOfRentalEachMonth <- function() {
     # monthList : 1, 2,... 12

@@ -2,13 +2,15 @@
 % Please edit documentation in R/getAmountOfRentalEachDayOfWeek.R
 \name{getAmountOfRentalEachDayOfWeek}
 \alias{getAmountOfRentalEachDayOfWeek}
-\title{Get monthly amount of rental Each day of week}
+\title{Visualize amount of bicycle rental at each day of week.}
 \usage{
 getAmountOfRentalEachDayOfWeek()
 }
 \description{
-Get monthly amount of rental Each day of week
+Visualize amount of bicycle rental at each day of week.
 }
 \examples{
+\dontrun{
 getAmountOfRentalEachDayOfWeek()
+}
 }

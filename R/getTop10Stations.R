@@ -1,4 +1,4 @@
-#' Get top 10 stations that have the most amount of rentals from 2013 to 2015.
+#' Visualize top 10 stations that were most used from 2013 to 2015.
 #'
 #' Draw a plot that visualized most used top 10 stations on barchart.
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
@@ -7,7 +7,7 @@
 #' @import ggplot2
 #' @importFrom utils head
 #' @examples
-#' getTop10Stations()
+#' \dontrun{getTop10Stations()}
 
 getTop10Stations <- function() {
   rent_cnt <- data.frame(table(tashuDataFor3year$RENT_STATION))

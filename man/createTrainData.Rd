@@ -17,5 +17,8 @@ columns: datetime, season, month, hourm, day of week, temperature, humidity, rai
 Create training data frame in 'stationNum' bike station by preprocessing bike rental history, weather and festival data from 2013 to 2014.
 }
 \examples{
+\dontrun{
 trainData <- createTrainData(1)
+}
+
 }

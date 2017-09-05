@@ -1,6 +1,5 @@
-
-
-#' Get monthly amount of rental Each day of week
+#' Visualize amount of bicycle rental at each day of week.
+#'
 #' @export
 #' @import RColorBrewer ggplot2
 #' @importFrom reshape2 melt
@@ -9,7 +8,9 @@
 #' @importFrom stats rnorm
 #'
 #' @examples
+#' \dontrun{
 #' getAmountOfRentalEachDayOfWeek()
+#' }
 
 getAmountOfRentalEachDayOfWeek <- function() {
     # weekdayList : 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday, 7 = Sunday

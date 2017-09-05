@@ -2,7 +2,7 @@
 % Please edit documentation in R/getAmountOfRentalEachMonth.R
 \name{getAmountOfRentalEachMonth}
 \alias{getAmountOfRentalEachMonth}
-\title{Get monthly amount of bike rental from 2013 to 2015.}
+\title{Visualize amount of bicycle rental at each month.}
 \usage{
 getAmountOfRentalEachMonth()
 }
@@ -10,5 +10,5 @@ getAmountOfRentalEachMonth()
 Draw a plot that visualize monthly average amount of bike rental from 2013 to 2015.
 }
 \examples{
-getAmountOfRentalEachMonth()
+\dontrun{getAmountOfRentalEachMonth()}
 }

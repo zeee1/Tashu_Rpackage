@@ -2,13 +2,13 @@
 % Please edit documentation in R/getTop10Pathes.R
 \name{getTop10Pathes}
 \alias{getTop10Pathes}
-\title{Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.}
+\title{Visualize Top 10 Pathes that were most used from 2013 to 2015.}
 \usage{
 getTop10Pathes()
 }
 \description{
-Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.
+Visualize Top 10 Pathes that were most used from 2013 to 2015.
 }
 \examples{
-getTop10Pathes()
+\dontrun{getTop10Pathes()}
 }

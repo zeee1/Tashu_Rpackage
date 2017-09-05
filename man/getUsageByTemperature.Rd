@@ -2,7 +2,7 @@
 % Please edit documentation in R/getUsageByTemperature.R
 \name{getUsageByTemperature}
 \alias{getUsageByTemperature}
-\title{Show the change of amount of bike rental by Temperature.}
+\title{Visualize the change of amount of bicycle rental by Temperature.}
 \usage{
 getUsageByTemperature()
 }
@@ -10,5 +10,5 @@ getUsageByTemperature()
 This function draw a plot that show change of average temperature and average bike rental ratio in each month.
 }
 \examples{
-getUsageByTemperature()
+\dontrun{getUsageByTemperature()}
 }

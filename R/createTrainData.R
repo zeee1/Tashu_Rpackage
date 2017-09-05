@@ -10,7 +10,10 @@
 #' @export
 #' @importFrom lubridate ymd_hms wday hours month hour ymd_hm year
 #' @examples
+#' \dontrun{
 #' trainData <- createTrainData(1)
+#' }
+#'
 
 createTrainData <- function(stationNum) {
     rentSubsetInTrain <- tashuDataFor3year[tashuDataFor3year$RENT_STATION == stationNum, ]

@@ -20,7 +20,10 @@ testData with predictive result.
 predict hourly amount of bike rental in 2015 using random forest algorithm. Create prediction model using 'trainData' and forecast demand of bike rental according to the condition of 'testData'
 }
 \examples{
+\dontrun{
 trainData <- createTrainData(3)
 testData <- createTestData(3)
 predictDemandOfBikesUsingRF(trainData, testData, numOftree = 50)
+}
+
 }

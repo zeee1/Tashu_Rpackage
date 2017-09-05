@@ -11,9 +11,6 @@
   \item{RETURN_STATION}{station Number where bike was returned.}
   \item{RETURN_DATE}{date time when bike was returned. yyyy-mm-dd hh:mm:ss}
 }}
-\source{
-\url{https://www.data.go.kr/dataset/3068538/fileData.do/}
-}
 \usage{
 tashu2013
 }

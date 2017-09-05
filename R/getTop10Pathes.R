@@ -1,10 +1,10 @@
-#' Get Top 10 Pathes that were most used from 2013 to 2015 And visualize the result on map.
+#' Visualize Top 10 Pathes that were most used from 2013 to 2015.
 #'
 #' @export
 #' @import ggplot2
 #' @importFrom utils head
 #' @examples
-#' getTop10Pathes()
+#' \dontrun{getTop10Pathes()}
 
 getTop10Pathes <- function() {
     trace_cnt <- data.frame(table(tashuDataFor3year$RENT_STATION, tashuDataFor3year$RETURN_STATION))

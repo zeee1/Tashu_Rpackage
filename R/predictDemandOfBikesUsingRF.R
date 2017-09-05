@@ -10,9 +10,12 @@
 #' @importFrom randomForest importance randomForest
 #' @importFrom stats predict reorder
 #' @examples
+#' \dontrun{
 #' trainData <- createTrainData(3)
 #' testData <- createTestData(3)
 #' predictDemandOfBikesUsingRF(trainData, testData, numOftree = 50)
+#' }
+#'
 
 predictDemandOfBikesUsingRF <- function(trainData, testData, numOftree = 50) {
     monthList <- unique(trainData$rentMonth)

@@ -1,11 +1,11 @@
-#' Show the change of amount of bike rental by Temperature.
+#' Visualize the change of amount of bicycle rental by Temperature.
 #'
 #' This function draw a plot that show change of average temperature and average bike rental ratio in each month.
 #'
 #' @export
 #' @importFrom graphics axis legend mtext par plot
 #' @examples
-#' getUsageByTemperature()
+#' \dontrun{getUsageByTemperature()}
 
 getUsageByTemperature <- function() {
     # Todo : Visualize the correlation between Amount of rental and Temperature.  xlab : month ylab : temperature, bike rental ratio.

@@ -11,7 +11,10 @@
 #' @importFrom lubridate ymd_hms wday hours month hour
 #' @importFrom utils globalVariables
 #' @examples
+#' \dontrun{
 #' testData <- createTestData(1)
+#' }
+#'
 
 createTestData <- function(stationNum) {
     rentSubsetInTest <- tashu2015[tashu2015$RENT_STATION == stationNum, ]

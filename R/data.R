@@ -9,7 +9,6 @@
 #'   \item{RETURN_STATION}{station Number where bike was returned.}
 #'   \item{RETURN_DATE}{date time when bike was returned. yyyy-mm-dd hh:mm:ss}
 #' }
-#' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashu2013"
 
 #' Bike rental history on Tashu in 2014.
@@ -23,7 +22,6 @@
 #'   \item{RETURN_STATION}{station Number where bike was returned.}
 #'   \item{RETURN_DATE}{date time when bike was returned. yyyy-mm-dd hh:mm:ss}
 #' }
-#' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashu2014"
 
 #' Bike rental history on Tashu in 2015.
@@ -37,7 +35,6 @@
 #'   \item{RETURN_STATION}{station Number where bike was returned.}
 #'   \item{RETURN_DATE}{date time when bike was returned. yyyy-mm-dd hh:mm:ss}
 #' }
-#' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashu2015"
 
 #' Bike rental history on Tashu from 2013 to 2015.
@@ -64,7 +61,6 @@
 #'   \item{GEODATA_lat}{latitude of bike station}
 #'   \item{GEODATA_lon}{longitude of bike station}
 #' }
-#' @source \url{https://www.data.go.kr/dataset/3068538/fileData.do/}
 "tashuStationData"
 
 #' weather data In Daejeon, 2013

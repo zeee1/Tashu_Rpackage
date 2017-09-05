@@ -11,9 +11,6 @@
   \item{GEODATA_lat}{latitude of bike station}
   \item{GEODATA_lon}{longitude of bike station}
 }}
-\source{
-\url{https://www.data.go.kr/dataset/3068538/fileData.do/}
-}
 \usage{
 tashuStationData
 }

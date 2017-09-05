@@ -1,12 +1,10 @@
 Package: tashu
 Type: Package
-Title: Usage Pattern Analysis and Demand Forecasting on Public Bicycle System('Tashu') in Daejeon, South Korea
+Title: Analysis and Visualization of Public Bicycle System('Tashu') Data in Daejeon City of South Korea
 Version: 0.1.0
 Author: Jiwon Min <miw5281@gmail.com>
 Maintainer: Jiwon Min <miw5281@gmail.com>
-Description: An implementation of analysis and prediction function on Public Bicycle System('Tashu') in Daejeon, South Korea.
-    This package provides Bike rental history, Bike station, weather and festival data from 2013 to 2015.
-    Anyone can analyze the data and predict the demand of rental free. 
+Description: Can check bicycle usage pattern of citizen in Daejeon City of South Korea. This package provides bicycle rental history, weather and festival data from 2013 to 2015 and some basic analytic functions.
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
