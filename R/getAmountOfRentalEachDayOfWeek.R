@@ -11,8 +11,10 @@
 #' \dontrun{
 #' getAmountOfRentalEachDayOfWeek()
 #' }
-
-getAmountOfRentalEachDayOfWeek <- function() {
+dailyUsage <- function(){
+  dailyUsageDF <-
+}
+"""changeOfRentalAmountByWeekday <- function() {
     # weekdayList : 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday, 7 = Sunday
     dayOfWeekList <- c(1:7)
     hourList <- c(5:23)
@@ -60,3 +62,4 @@ getAmountOfRentalEachDayOfWeek <- function() {
     zp1 <- zp1 + ggtitle("The average amount of bike rental each day of week(2013 ~ 2015)")
     print(zp1)
 }
+"""
