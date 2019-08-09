@@ -22,11 +22,14 @@ create_train_data <- function(stationNumber){
   trainDataset[trainDataset$month == 12 | trainDataset$month <=2, 'season'] <- "4"
 
   # Collect feature data('Temperature', 'Windspeed', 'humidity', 'Rainfall') from weather dataset(2013.01.01 ~ 2014.12.31)
-  feature_weatherData <- weather20132014Data[, c("Datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")]
+  weather$year <- year(weather$Datetime)
+  weather20132014Data <- weather[weather$year < 2015,]
+  feature_weatherData <- weather20132014Data[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
   colnames(feature_weatherData) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
   feature_weatherData['datetime'] <- as_datetime(feature_weatherData$datetime, tz = 'EST')
 
   # Collect rental history on 'stationNumber' station.
+
   rentalHistory <- tashu20132014Data[tashu20132014Data$RENT_STATION == i_station,]
 
   # Compute hourly rental count
@@ -34,11 +37,11 @@ create_train_data <- function(stationNumber){
   colnames(rentalHistory) <- c("datetime", "rentcount")
   rentalHistory['datetime'] <- as.POSIXct(rentalHistory$datetime, tz='EST')
 
-  # 학습 데이터에 기상 데이터, 대여 수 추가
+  # Add trainDataset to weather data and rental count
   trainDataset <- left_join(trainDataset, feature_weatherData)
   trainDataset <- left_join(trainDataset, rentalHistory)
 
-  # NA 값으로 표기된 강수량, 대여 수 0으로 치환
+  # replace NA on Rainfall, Snowfall to 0
   trainDataset[is.na(trainDataset)] <- 0
 
   trainDataset$rentcount <- trainDataset$rentcount+1

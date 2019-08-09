@@ -4,14 +4,13 @@
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
 #'
 #' @export
-#' @import ggplot2
-#' @importFrom utils head
+#' @import ggplot2, utils
 #' @examples
 #' \dontrun{getTop10Stations()}
 
-getTop10Stations <- function() {
-  rent_cnt <- data.frame(table(tashuDataFor3year$RENT_STATION))
-  return_cnt <- data.frame(table(tashuDataFor3year$RETURN_STATION))
+top10Stations <- function() {
+  rent_cnt <- data.frame(table(tashu$RENT_STATION))
+  return_cnt <- data.frame(table(tashu$RETURN_STATION))
   names(rent_cnt) <- c("station_no", "count")
   names(return_cnt) <- c("station_no", "count")
 
