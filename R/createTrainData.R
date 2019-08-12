@@ -6,9 +6,9 @@
 #' @return a dataset that present hourly amount of bike rental in 'stationNumber' station from 2013 to 2014.
 #' columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, rental count
 #' @export
-#' @importFrom lubridate ymd_hms wday hours month hour ymd_hm year
+#' @import lubridate
 
-create_train_data <- function(stationNumber){
+createTrainData <- function(stationNumber){
   trainDataset <- data.frame(datetime = seq(as_datetime("2013/01/01 00:00:00", tz='EST'), as_datetime("2014/12/31 23:00:00",tz='EST'), "hours"))
 
   # Add feature columns('hour', 'month', 'weekday', 'season') to trainDataset
@@ -29,11 +29,13 @@ create_train_data <- function(stationNumber){
   feature_weatherData['datetime'] <- as_datetime(feature_weatherData$datetime, tz = 'EST')
 
   # Collect rental history on 'stationNumber' station.
-
-  rentalHistory <- tashu20132014Data[tashu20132014Data$RENT_STATION == i_station,]
+  tashu$month <- month(tashu$RENT_DATE)
+  tashu$year <- year(tashu$RENT_DATE)
+  tashu20132014 <- tashu[tashu$year < 2015,]
+  rentalHistory <- tashu20132014[tashu20132014$RENT_STATION == stationNumber,]
 
   # Compute hourly rental count
-  rentalHistory <- data.frame(table(rentalHistory$rentDateTime))
+  rentalHistory <- data.frame(table(rentalHistory$RENT_DATE))
   colnames(rentalHistory) <- c("datetime", "rentcount")
   rentalHistory['datetime'] <- as.POSIXct(rentalHistory$datetime, tz='EST')
 
@@ -43,8 +45,6 @@ create_train_data <- function(stationNumber){
 
   # replace NA on Rainfall, Snowfall to 0
   trainDataset[is.na(trainDataset)] <- 0
-
-  trainDataset$rentcount <- trainDataset$rentcount+1
 
   return(trainDataset)
 }

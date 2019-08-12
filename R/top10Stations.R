@@ -6,7 +6,7 @@
 #' @export
 #' @import ggplot2, utils
 #' @examples
-#' \dontrun{getTop10Stations()}
+#' \dontrun{top10Stations()}
 
 top10Stations <- function() {
   rent_cnt <- data.frame(table(tashu$RENT_STATION))
@@ -23,7 +23,10 @@ top10Stations <- function() {
   # visualization 1
   options(scipen = 100)
   xData = reorder(sort_station_cnt$station_no, sort_station_cnt$total_cnt)
-  ggplot(sort_station_cnt, aes_string(x = 'xData', y = 'total_cnt')) + geom_bar(data = sort_station_cnt, stat = "identity", fill = "#53cfff") +
-        geom_text(aes_string(label = 'total_cnt')) + coord_flip() + theme_light(base_size = 20) + xlab("Station") + ylab("Count") + ggtitle("Most Heavily used Station In 2013 ~ 2015\n") +
-        theme(plot.title = element_text(size = 18))
+  ggplot(sort_station_cnt, aes_string(x = 'xData', y = 'total_cnt')) +
+    geom_bar(data = sort_station_cnt, stat = "identity", fill = "#53cfff") +
+    geom_text(aes_string(label = 'total_cnt')) +
+    coord_flip() + theme_light(base_size = 20) + xlab("Station") + ylab("Count") +
+    ggtitle("Most Popular Bike Station In 2013 ~ 2015\n") +
+    theme(plot.title = element_text(size = 18))
 }
