@@ -7,41 +7,42 @@
 #' dailyBikeRental()
 
 
-dailyBikeRental <- function(){
-  tashu$weekday <- wday(tashu$RENT_DATE)
-  tashu$hour <- hour(tashu$RENT_DATE)
+daily_bike_rental <- function() {
+    tashu$weekday <- wday(tashu$RENT_DATE)
+    tashu$hour <- hour(tashu$RENT_DATE)
 
-  dailyBikeUsage <- tashu %>% group_by(weekday, hour) %>% summarise(rental_count=n())
-  dailyBikeUsage <- dailyBikeUsage[dailyBikeUsage$hour > 4, ]
-  nRow <- 7
-  nCol <- 19
+    daily_bike_usage <- tashu %>%
+      group_by(weekday, hour) %>%
+      summarise(rental_count = n())
 
-  resultData <- matrix(rnorm(nRow * nCol), ncol = nCol)
-  rownames(resultData) <- c("Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun")
-  colnames(resultData) <- c(5:23)
+    daily_bike_usage <- daily_bike_usage[daily_bike_usage$hour > 4, ]
+    number_of_row <- 7
+    number_of_column <- 19
 
-  hourList <- c(5:23)
-  for (i in c(1:7)) {
-    x <- switch(i, "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat")
-    oneDayData <- dailyBikeUsage[dailyBikeUsage$weekday == i, ]
+    hourly_usage_record <- matrix(rnorm(number_of_row * number_of_column), number_of_column = number_of_column)
+    rownames(hourly_usage_record) <- c("Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun")
+    colnames(hourly_usage_record) <- c(5:23)
 
-    for (j in hourList) {
-      resultData[x, j-4] <- oneDayData[oneDayData$hour == j, ]$rental_count
+    hour_list <- c(5:23)
+    for (i in c(1:7)) {
+        x <- switch(i, "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat")
+        daily_record <- daily_bike_usage[daily_bike_usage$weekday == i, ]
+
+        for (j in hour_list) {
+            hourly_usage_record[x, j - 4] <- daily_record[daily_record$hour == j, ]$rental_count
+        }
     }
-  }
 
-  resultData <- melt(resultData)
-  myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space = "Lab")
+    hourly_usage_record <- melt(hourly_usage_record)
+    palette <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space = "Lab")
 
-  zp1 <- ggplot(resultData, aes_string(x = 'Var2', y = 'Var1', fill = 'value'))
-  zp1 <- zp1 + geom_tile()
-  zp1 <- zp1 + scale_fill_gradientn(colours = myPalette(100))
-  # zp1 <- zp1 + scale_x_discrete(expand = c(0, 0)) zp1 <- zp1 + scale_y_discrete(expand = c(0, 0))
-  zp1 <- zp1 + coord_equal()
-  zp1 <- zp1 + theme_bw()
-  zp1 <- zp1 + xlab("Hour")
-  zp1 <- zp1 + ylab("day Of Week")
-  zp1 <- zp1 + ggtitle("The rental amount of bike rental each day of week(2013 ~ 2015)")
-  print(zp1)
+    zp1 <- ggplot(hourly_usage_record, aes_string(x = "Var2", y = "Var1", fill = "value"))
+    zp1 <- zp1 + geom_tile()
+    zp1 <- zp1 + scale_fill_gradientn(colours = palette(100))
+    zp1 <- zp1 + coord_equal()
+    zp1 <- zp1 + theme_bw()
+    zp1 <- zp1 + xlab("Hour")
+    zp1 <- zp1 + ylab("day Of Week")
+    zp1 <- zp1 + ggtitle("The rental amount of bike rental each day of week(2013 ~ 2015)")
+    print(zp1)
 }
-
