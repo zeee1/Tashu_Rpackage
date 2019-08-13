@@ -22,22 +22,21 @@ createTrainData <- function(stationNumber){
   trainDataset[trainDataset$month == 12 | trainDataset$month <=2, 'season'] <- "4"
 
   # Collect feature data('Temperature', 'Windspeed', 'humidity', 'Rainfall') from weather dataset(2013.01.01 ~ 2014.12.31)
-  weather$year <- year(weather$Datetime)
-  weather20132014Data <- weather[weather$year < 2015,]
+  weather20132014Data <- weather[year(weather$Datetime) < 2015,]
   feature_weatherData <- weather20132014Data[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
   colnames(feature_weatherData) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
   feature_weatherData['datetime'] <- as_datetime(feature_weatherData$datetime, tz = 'EST')
 
   # Collect rental history on 'stationNumber' station.
-  tashu$month <- month(tashu$RENT_DATE)
-  tashu$year <- year(tashu$RENT_DATE)
-  tashu20132014 <- tashu[tashu$year < 2015,]
+  tashu20132014 <- tashu[year(tashu$RENT_DATE) < 2015,]
   rentalHistory <- tashu20132014[tashu20132014$RENT_STATION == stationNumber,]
 
   # Compute hourly rental count
   rentalHistory <- data.frame(table(rentalHistory$RENT_DATE))
   colnames(rentalHistory) <- c("datetime", "rentcount")
   rentalHistory['datetime'] <- as.POSIXct(rentalHistory$datetime, tz='EST')
+  rentalHistory['datetime'] <- floor_date(rentalHistory$datetime, "hour")
+  rentalHistory <- rentalHistory %>% group_by(datetime) %>% summarise(rentcount=n())
 
   # Add trainDataset to weather data and rental count
   trainDataset <- left_join(trainDataset, feature_weatherData)
