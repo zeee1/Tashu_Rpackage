@@ -1,22 +1,19 @@
-
-
-#' Create testing data frame for prediction.
+#' Create test dataset on specific station for prediction
 #'
-#' Create testing data frame in 'station_number' bike station by preprocessing bike rental history, weather and festival data in 2015.
+#' A function to create test dataset on 'station_number' bike station by preprocessing bike rental history and weather data in 2015.
 #'
 #' @param station_number number that means the number of each station.(1 ~ 144)
-#' @return a data frame that contains test Data in 'station_number' station, 2015
-#' columns : datetime, season, rentMonth, rentHour, rentWeekday, temperature, humidity, rainfall, isFestival, RrentCount(Real number of rental), PrentCount(NA, Predictive number of rental would be filled)
+#' @return a dataset containing feature and rental count data on 'station_number' station, 2015
 #' @export
-#' @importFrom lubridate ymd_hms wday hours month hour
-#' @importFrom utils globalVariables
-#' @examples
-#' \dontrun{
-#' testData <- create_test_dataset(1)
-#' }
+#' @import lubridate utils globalVariables
+#' @examples test_dataset <- create_test_dataset(1)
 #'
 
 create_test_dataset <- function(station_number) {
+
+  if(station_number < 1 || station_number > 144){
+    stop("Station number should be from 1 to 144. Please re-Input station number.", call. = FALSE)
+  }
     test_dataset <- data.frame(
         datetime = seq(as_datetime("2015/01/01 00:00:00", tz = "EST"),
                        as_datetime("2015/12/31 23:00:00", tz = "EST"),

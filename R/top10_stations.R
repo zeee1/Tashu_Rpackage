@@ -6,7 +6,7 @@
 #' @export
 #' @import ggplot2, utils
 #' @examples
-#' \dontrun{top10Stations()}
+#' top10Stations()
 
 top10_stations <- function() {
     rent_cnt <- data.frame(table(tashu$RENT_STATION))

@@ -7,15 +7,19 @@
 #' @param numOftree number of tree in random Forest
 #' @return test_dataset with predictive result.
 #' @export
-#' @importFrom randomForest importance randomForest
-#' @importFrom stats predict reorder
+#' @import randomForest
 #' @examples
-#' \dontrun{
 #' train_dataset <- createtrain_dataset(3)
 #' test_dataset <- createtest_dataset(3)
 #' predictDemandOfBikesUsingRF(train_dataset, test_dataset, numOftree = 50)
-#' }
 #'
+
+extract_features <- function(data){
+  features <- c ("hour", "month", "weekday", "season",
+                 "Temperature", "Windspeed", "Humidity", "Rainfall")
+
+  return(data[, features])
+}
 
 predict_bike_rental <- function(rf_model, test_dataset) {
     test_dataset$predicted_rent_count <- NA

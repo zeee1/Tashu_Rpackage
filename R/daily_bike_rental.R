@@ -1,5 +1,7 @@
 #' Visualize amount of bicycle rental at each day of week.
 #'
+#' A function analyzing bike rental pattern on each day of week and visualizing analyzed result.
+#'
 #' @export
 #' @import RColorBrewer ggplot2 dplyr reshape2 lubridate grDevices stats
 #'

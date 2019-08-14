@@ -1,14 +1,20 @@
-#' Create training dataset for prediction on specific Station
+#' Create training dataset on specific station for prediction
 #'
-#' Create training data frame in 'stationNum' bike station by preprocessing bike rental history and weather data from 2013 to 2014.
+#' A function to create training dataset on 'station_number' bike station by preprocessing bike rental history and weather data from 2013 to 2014.
 #'
 #' @param station_number number that means the number of each station.(1 ~ 144)
-#' @return a dataset that present hourly amount of bike rental in 'station_number' station from 2013 to 2014.
-#' columns: datetime, season, month, hourm, day of week, temperature, humidity, rainfall, rental count
+#' @return a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 #' @export
 #' @import lubridate
+#' @example
+#' train_dataset <- create_train_dataset(1)
+#'
 
 create_train_dataset <- function(station_number) {
+  if(station_number < 1 || station_number > 144){
+    stop("Station number should be from 1 to 144. Please re-Input station number.", call. = FALSE)
+  }
+
     train_dataset <- data.frame(
       datetime = seq(as_datetime("2013/01/01 00:00:00", tz = "EST"),
                      as_datetime("2014/12/31 23:00:00", tz = "EST"),
