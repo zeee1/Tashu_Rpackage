@@ -5,7 +5,8 @@
 #' @param station_number number that means the number of each station.(1 ~ 144)
 #' @return a dataset containing feature and rental count data on 'station_number' station, 2015
 #' @export
-#' @import lubridate utils globalVariables
+#' @importFrom lubridate hour month wday year floor_date
+#' @importFrom dplyr summarise group_by left_join
 #' @examples test_dataset <- create_test_dataset(1)
 #'
 

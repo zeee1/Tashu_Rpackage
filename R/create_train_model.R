@@ -4,6 +4,7 @@
 #' @return random forest training model
 #' @export
 #' @import randomForest
+#' @importFrom randomForest randomForest
 #' @examples
 #' train_dataset <- create_train_dataset(3)
 #' rf_model <- create_train_model(train_dataset)

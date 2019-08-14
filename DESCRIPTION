@@ -15,7 +15,14 @@ Description: This package provides bike rental history data for 3 years
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
-Imports: ggplot2, dplyr, randomForest, lubridate, plyr, reshape2, RColorBrewer
+Imports: 
+    ggplot2, 
+    dplyr,
+    randomForest,
+    lubridate,
+    plyr,
+    reshape2,
+    RColorBrewer
 Suggests: knitr,
     rmarkdown,
     testthat

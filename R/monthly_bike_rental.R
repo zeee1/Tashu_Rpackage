@@ -3,7 +3,10 @@
 #' A function drawing a plot that shows change of temperature and bike rental ratio in each month.
 #'
 #' @export
-#' @import dplyr, lubridate
+#' @import dplyr, lubridate, graphics
+#' @importFrom lubridate month
+#' @importFrom dplyr group_by summarise
+#' @importFrom graphics par plot axis mtext legend
 #' @examples
 #' monthly_bike_rental()
 

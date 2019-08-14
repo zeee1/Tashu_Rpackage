@@ -2,6 +2,7 @@
 #'
 #' @export
 #' @import ggplot2, utils
+#' @importFrom ggplot2 ggplot geom_point aes_string
 
 top10_pathes <- function() {
     trace_cnt <- data.frame(table(tashu$RENT_STATION, tashu$RETURN_STATION))

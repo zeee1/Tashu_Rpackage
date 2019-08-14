@@ -6,6 +6,8 @@
 #' @return a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 #' @export
 #' @import lubridate
+#' @importFrom lubridate hour month wday year floor_date
+#' @importFrom dplyr summarise group_by left_join
 #' @example
 #' train_dataset <- create_train_dataset(1)
 #'

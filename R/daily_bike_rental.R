@@ -4,7 +4,12 @@
 #'
 #' @export
 #' @import RColorBrewer ggplot2 dplyr reshape2 lubridate grDevices stats
-#'
+#' @importFrom RColorBrewer brewer.pal
+#' @importFrom grDevices colorRampPalette
+#' @importFrom reshape2 melt
+#' @importFrom lubridate wday hour
+#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle
+#' @importFrom dplyr summarise group_by
 #' @examples
 #' dailyBikeRental()
 
