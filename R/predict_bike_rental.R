@@ -7,8 +7,7 @@
 #' @param numOftree number of tree in random Forest
 #' @return test_dataset with predictive result.
 #' @export
-#' @import randomForest
-#' @importFrom randomForest predict
+#' @importFrom stats predict
 #' @examples
 #' train_dataset <- createtrain_dataset(3)
 #' test_dataset <- createtest_dataset(3)
