@@ -5,10 +5,10 @@
 #' @export
 #' @import dplyr lubridate graphics
 #' @importFrom lubridate month
-#' @importFrom dplyr group_by summarise
+#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
-#' monthly_bike_rental()
+#' \dontrun{monthly_bike_rental()}
 
 monthly_bike_rental <- function() {
 

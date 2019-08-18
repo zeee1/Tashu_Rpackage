@@ -10,5 +10,5 @@ daily_bike_rental()
 A function analyzing bike rental pattern on each day of week and visualizing analyzed result.
 }
 \examples{
-dailyBikeRental()
+\dontrun{daily_bike_rental()}
 }

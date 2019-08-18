@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_test_dataset.R
 \name{create_test_dataset}
 \alias{create_test_dataset}
-\title{Create test dataset on specific station for prediction}
+\title{Create training dataset on specific station for prediction}
 \usage{
 create_test_dataset(station_number)
 }
@@ -10,12 +10,12 @@ create_test_dataset(station_number)
 \item{station_number}{number that means the number of each station.(1 ~ 144)}
 }
 \value{
-a dataset containing feature and rental count data on 'station_number' station, 2015
+a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 }
 \description{
-A function to create test dataset on 'station_number' bike station by preprocessing bike rental history and weather data in 2015.
+A function to create training dataset on 'station_number' bike station by preprocessing bike rental history and weather data from 2013 to 2014.
 }
 \examples{
-test_dataset <- create_test_dataset(1)
+\dontrun{test_dataset <- create_test_dataset(1)}
 
 }

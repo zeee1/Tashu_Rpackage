@@ -8,7 +8,7 @@
 #' @importFrom stats reorder
 #' @importFrom ggplot2 ggplot geom_bar aes_string geom_text coord_flip xlab ylab ggtitle theme
 #' @examples
-#' top10Stations()
+#' \dontrun{top10_stations()}
 
 top10_stations <- function() {
     rent_cnt <- data.frame(table(tashu$RENT_STATION))

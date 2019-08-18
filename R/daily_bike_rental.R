@@ -8,10 +8,10 @@
 #' @importFrom grDevices colorRampPalette
 #' @importFrom reshape2 melt
 #' @importFrom lubridate wday hour
-#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle
-#' @importFrom dplyr summarise group_by
+#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle margin
+#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
 #' @examples
-#' dailyBikeRental()
+#' \dontrun{daily_bike_rental()}
 
 
 daily_bike_rental <- function() {
@@ -26,7 +26,7 @@ daily_bike_rental <- function() {
     number_of_row <- 7
     number_of_column <- 19
 
-    hourly_usage_record <- matrix(rnorm(number_of_row * number_of_column), number_of_column = number_of_column)
+    hourly_usage_record <- matrix(rnorm(number_of_row * number_of_column), ncol = number_of_column)
     rownames(hourly_usage_record) <- c("Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun")
     colnames(hourly_usage_record) <- c(5:23)
 

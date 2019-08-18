@@ -7,9 +7,9 @@
 #' @export
 #' @import lubridate
 #' @importFrom lubridate hour month wday year floor_date
-#' @importFrom dplyr summarise group_by left_join
-#' @example
-#' train_dataset <- create_train_dataset(1)
+#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @examples
+#' \dontrun{train_dataset <- create_train_dataset(1)}
 #'
 
 create_train_dataset <- function(station_number) {
@@ -36,7 +36,7 @@ create_train_dataset <- function(station_number) {
     weather20132014 <- weather[year(weather$Datetime) < 2015, ]
     feature_weather <- weather20132014[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
     colnames(feature_weather) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
-    feature_weather["datetime"] <- as_datetime(feature_weather$datetime, tz = "EST")
+    feature_weather$datetime <- as_datetime(feature_weather$datetime, tz = "EST")
 
     # Collect rental history on 'station_number' station.
     tashu20132014 <- tashu[year(tashu$RENT_DATE) < 2015, ]
@@ -45,9 +45,11 @@ create_train_dataset <- function(station_number) {
     # Compute hourly rental count
     rental_history <- data.frame(table(rental_history$RENT_DATE))
     colnames(rental_history) <- c("datetime", "rentcount")
-    rental_history["datetime"] <- as.POSIXct(rental_history$datetime, tz = "EST")
-    rental_history["datetime"] <- floor_date(rental_history$datetime, "hour")
-    rental_history <- rental_history %>% group_by(datetime) %>% summarise(rentcount = n())
+    rental_history$datetime <- as.POSIXct(rental_history$datetime, tz = "EST")
+    rental_history$datetime <- floor_date(rental_history$datetime, "hour")
+    #rental_history <- rental_history %>% group_by(datetime) %>% summarise(rentcount = n())
+    rental_history <- group_by(rental_history, datetime)
+    rental_history <- summarise(rental_history, rentcount = n())
 
     # Add train_dataset to weather data and rental count
     train_dataset <- left_join(train_dataset, feature_weather)

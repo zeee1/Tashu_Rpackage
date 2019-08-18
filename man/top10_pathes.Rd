@@ -9,3 +9,7 @@ top10_pathes()
 \description{
 Visualize Top 10 Pathes that were most used from 2013 to 2015.
 }
+\examples{
+\dontrun{top10_pathes()}
+
+}

@@ -10,5 +10,5 @@ monthly_bike_rental()
 A function drawing a plot that shows change of temperature and bike rental ratio in each month.
 }
 \examples{
-monthly_bike_rental()
+\dontrun{monthly_bike_rental()}
 }

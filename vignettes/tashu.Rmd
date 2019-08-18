@@ -29,8 +29,8 @@ head(tashu, n = 5)
 
 * tashuStationData : data of 144 Stations on Tashu system. 
 ```{r}
-load(file = "../data/tashuStationData.rda")
-head(tashuStationData, n = 5)
+load(file = "../data/tashuStation.rda")
+head(tashuStation, n = 5)
 ```
 
 3.    Weather Data
@@ -40,7 +40,7 @@ head(tashuStationData, n = 5)
 
 ```{r}
 load(file = "../data/weather.rda")
-head(weather2013, n = 5)
+head(weather, n = 5)
 ```
 
 ## 3. Analysis function
@@ -98,8 +98,8 @@ head(train_dataset, n = 5)
  
 ```{r}
 library(tashu)
-train_dataset <- create_test_dataset(1)
-head(train_dataset, n = 5)
+test_dataset <- create_test_dataset(1)
+head(test_dataset, n = 5)
 ```
 
 3.    create_train_model(trainData, testData, isImportance, numOfTree, type)
@@ -116,4 +116,5 @@ rf_model <- create_train_model(train_dataset)
 ```{r}
 library(tashu)
 predict_result <- predict_bike_rental(rf_model, test_dataset)
+head(predict_result, n = 5)
 ```

@@ -13,5 +13,5 @@ Data frame that contains top 10 most used stations from 2013 to 2015
 Draw a plot that visualized most used top 10 stations on barchart.
 }
 \examples{
-top10Stations()
+\dontrun{top10_stations()}
 }
