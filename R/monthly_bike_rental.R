@@ -3,8 +3,13 @@
 #' A function drawing a plot that shows change of temperature and bike rental ratio in each month.
 #'
 #' @export
+<<<<<<< HEAD
 #' @import dplyr lubridate graphics utils
 #' @importFrom lubridate month
+=======
+#' @import dplyr lubridate graphics
+#' @importFrom lubridate hour month wday year floor_date
+>>>>>>> e89b06fa0ff79789322551af792eb2964f53ca5d
 #' @importFrom dplyr summarise group_by left_join
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
@@ -19,7 +24,9 @@ monthly_bike_rental <- function() {
 
     # Compute monthly average temperature
     weather$month <- month(weather$Datetime)
-    temperature_by_month <- weather %>% group_by(month) %>% summarise(temperature = mean(Temperature))
+    temperature_by_month <- weather %>%
+      group_by(month) %>%
+      summarise(temperature = mean(Temperature))
 
     par(mar = c(5, 5, 5, 5))
 

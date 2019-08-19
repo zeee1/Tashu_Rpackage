@@ -5,7 +5,7 @@
 #' @param station_number number that means the number of each station.(1 ~ 144)
 #' @return a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 #' @export
-#' @import lubridate
+#' @import lubridate dplyr
 #' @importFrom lubridate hour month wday year floor_date
 #' @importFrom dplyr summarise group_by left_join
 #' @examples
@@ -23,9 +23,9 @@ create_test_dataset <- function(station_number) {
                    "hours"))
 
   # Add feature columns('hour', 'month', 'weekday', 'season') to test_dataset
-  test_dataset["hour"] <- as.character(hour(test_dataset$datetime))
-  test_dataset["month"] <- as.character(month(test_dataset$datetime))
-  test_dataset["weekday"] <- as.character(wday(test_dataset$datetime))
+  test_dataset["hour"] <- as.character(lubridate::hour(test_dataset$datetime))
+  test_dataset["month"] <- as.character(lubridate::month(test_dataset$datetime))
+  test_dataset["weekday"] <- as.character(lubridate::wday(test_dataset$datetime))
   test_dataset["season"] <- as.character()
   test_dataset[test_dataset$month >= 3 & test_dataset$month <= 5, "season"] <- "1"
   test_dataset[test_dataset$month >= 6 & test_dataset$month <= 8, "season"] <- "2"
@@ -33,27 +33,27 @@ create_test_dataset <- function(station_number) {
   test_dataset[test_dataset$month == 12 | test_dataset$month <= 2, "season"] <- "4"
 
   # Collect feature data('Temperature', 'Windspeed', 'humidity', 'Rainfall') from weather dataset(2013.01.01 ~ 2014.12.31)
-  weather2015 <- weather[year(weather$Datetime) == 2015, ]
+  weather2015 <- weather[lubridate::year(weather$Datetime) == 2015, ]
   feature_weather <- weather2015[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
   colnames(feature_weather) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
   feature_weather$datetime <- as_datetime(feature_weather$datetime, tz = "EST")
 
   # Collect rental history on 'station_number' station.
-  tashu2015 <- tashu[year(tashu$RENT_DATE) == 2015, ]
+  tashu2015 <- tashu[lubridate::year(tashu$RENT_DATE) == 2015, ]
   rental_history <- tashu2015[tashu2015$RENT_STATION == station_number, ]
 
   # Compute hourly rental count
   rental_history <- data.frame(table(rental_history$RENT_DATE))
   colnames(rental_history) <- c("datetime", "rentcount")
   rental_history$datetime <- as.POSIXct(rental_history$datetime, tz = "EST")
-  rental_history$datetime <- floor_date(rental_history$datetime, "hour")
+  rental_history$datetime <- lubridate::floor_date(rental_history$datetime, "hour")
   #rental_history <- rental_history %>% group_by(datetime) %>% summarise(rentcount = n())
-  rental_history <- group_by(rental_history, datetime)
-  rental_history <- summarise(rental_history, rentcount = n())
+  rental_history <- dplyr::group_by(rental_history, datetime)
+  rental_history <- dplyr::summarise(rental_history, rentcount = n())
 
   # Add test_dataset to weather data and rental count
-  test_dataset <- left_join(test_dataset, feature_weather)
-  test_dataset <- left_join(test_dataset, rental_history)
+  test_dataset <- dplyr::left_join(test_dataset, feature_weather)
+  test_dataset <- dplyr::left_join(test_dataset, rental_history)
 
   # replace NA on Rainfall, Snowfall to 0
   test_dataset[is.na(test_dataset)] <- 0

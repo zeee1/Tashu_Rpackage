@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @import ggplot2 utils
-#' @importFrom ggplot2 ggplot geom_point aes_string margin
+#' @importFrom ggplot2 ggplot geom_point aes_string
 #' @examples
 #' \dontrun{top10_pathes()}
 #'
