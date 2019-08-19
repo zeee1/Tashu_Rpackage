@@ -4,8 +4,8 @@
 #'
 #' @export
 #' @import dplyr lubridate graphics
-#' @importFrom lubridate month
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom lubridate hour month wday year floor_date
+#' @importFrom dplyr summarise group_by left_join
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
 #' \dontrun{monthly_bike_rental()}
@@ -19,7 +19,9 @@ monthly_bike_rental <- function() {
 
     # Compute monthly average temperature
     weather$month <- month(weather$Datetime)
-    temperature_by_month <- weather %>% group_by(month) %>% summarise(temperature = mean(Temperature))
+    temperature_by_month <- weather %>%
+      group_by(month) %>%
+      summarise(temperature = mean(Temperature))
 
     par(mar = c(5, 5, 5, 5))
 

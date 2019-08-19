@@ -8,25 +8,26 @@
 #' @importFrom grDevices colorRampPalette
 #' @importFrom reshape2 melt
 #' @importFrom lubridate wday hour
-#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle margin
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle
+#' @importFrom dplyr summarise group_by left_join
+#' @importFrom stats rnorm
 #' @examples
 #' \dontrun{daily_bike_rental()}
 
 
 daily_bike_rental <- function() {
-    tashu$weekday <- wday(tashu$RENT_DATE)
-    tashu$hour <- hour(tashu$RENT_DATE)
+    tashu$weekday <- lubridate::wday(tashu$RENT_DATE)
+    tashu$hour <- lubridate::hour(tashu$RENT_DATE)
 
     daily_bike_usage <- tashu %>%
-      group_by(weekday, hour) %>%
-      summarise(rental_count = n())
+      dplyr::group_by(weekday, hour) %>%
+      dplyr::summarise(rental_count = n())
 
     daily_bike_usage <- daily_bike_usage[daily_bike_usage$hour > 4, ]
     number_of_row <- 7
     number_of_column <- 19
 
-    hourly_usage_record <- matrix(rnorm(number_of_row * number_of_column), ncol = number_of_column)
+    hourly_usage_record <- matrix(stats::rnorm(number_of_row * number_of_column), ncol = number_of_column)
     rownames(hourly_usage_record) <- c("Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun")
     colnames(hourly_usage_record) <- c(5:23)
 
@@ -40,7 +41,7 @@ daily_bike_rental <- function() {
         }
     }
 
-    hourly_usage_record <- melt(hourly_usage_record)
+    hourly_usage_record <- reshape2::melt(hourly_usage_record)
     palette <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space = "Lab")
 
     zp1 <- ggplot(hourly_usage_record, aes_string(x = "Var2", y = "Var1", fill = "value"))
