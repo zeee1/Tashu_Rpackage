@@ -7,13 +7,13 @@
 #' @export
 #' @import lubridate
 #' @importFrom lubridate hour month wday year floor_date
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom dplyr summarise group_by left_join
 #' @examples
 #' \dontrun{test_dataset <- create_test_dataset(1)}
 #'
 
 create_test_dataset <- function(station_number) {
-  if(station_number < 1 || station_number > 144){
+  if (station_number < 1 || station_number > 144){
     stop("Station number should be from 1 to 144. Please re-Input station number.", call. = FALSE)
   }
 

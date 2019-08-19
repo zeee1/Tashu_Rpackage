@@ -6,7 +6,7 @@
 #' @export
 #' @import ggplot2 utils stats
 #' @importFrom stats reorder
-#' @importFrom ggplot2 ggplot geom_bar aes_string geom_text coord_flip xlab ylab ggtitle theme
+#' @importFrom ggplot2 ggplot geom_bar aes geom_text coord_flip xlab ylab ggtitle theme
 #' @examples
 #' \dontrun{top10_stations()}
 
@@ -25,7 +25,7 @@ top10_stations <- function() {
     options(scipen = 100)
     stations_top10 <- reorder(sort_station_cnt$station_no, sort_station_cnt$total_cnt)
     ggplot(sort_station_cnt,
-           aes_string(x = "stations_top10", y = "total_cnt")) +
+           aes(x = stations_top10, y = total_cnt)) +
       geom_bar(data = sort_station_cnt, stat = "identity", fill = "#53cfff") +
       geom_text(aes_string(label = "total_cnt")) +
       coord_flip() +

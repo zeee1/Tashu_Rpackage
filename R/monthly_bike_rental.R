@@ -3,9 +3,9 @@
 #' A function drawing a plot that shows change of temperature and bike rental ratio in each month.
 #'
 #' @export
-#' @import dplyr lubridate graphics
+#' @import dplyr lubridate graphics utils
 #' @importFrom lubridate month
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom dplyr summarise group_by left_join
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
 #' \dontrun{monthly_bike_rental()}

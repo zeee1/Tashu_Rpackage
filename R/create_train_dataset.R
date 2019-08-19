@@ -7,7 +7,7 @@
 #' @export
 #' @import lubridate
 #' @importFrom lubridate hour month wday year floor_date
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom dplyr summarise group_by left_join
 #' @examples
 #' \dontrun{train_dataset <- create_train_dataset(1)}
 #'

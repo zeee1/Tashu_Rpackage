@@ -9,7 +9,7 @@
 #' @importFrom reshape2 melt
 #' @importFrom lubridate wday hour
 #' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle margin
-#' @importFrom dplyr summarise group_by left_join intersect union setdiff lag filter combine
+#' @importFrom dplyr summarise group_by left_join
 #' @examples
 #' \dontrun{daily_bike_rental()}
 
