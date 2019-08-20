@@ -1,7 +1,7 @@
 #' Visualize Top 10 Pathes that were most used from 2013 to 2015.
 #'
 #' @export
-#' @import ggplot2 utils
+#' @importFrom utils head
 #' @importFrom ggplot2 ggplot geom_point aes_string
 #' @examples
 #' \dontrun{top10_pathes()}

@@ -3,19 +3,13 @@
 #' A function analyzing bike rental pattern on each day of week and visualizing analyzed result.
 #'
 #' @export
-#' @import RColorBrewer ggplot2 dplyr reshape2 lubridate grDevices stats
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom grDevices colorRampPalette
 #' @importFrom reshape2 melt
 #' @importFrom lubridate wday hour
-<<<<<<< HEAD
-#' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle margin
-#' @importFrom dplyr summarise group_by left_join
-=======
 #' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle
-#' @importFrom dplyr summarise group_by left_join
+#' @importFrom dplyr summarise group_by %>%
 #' @importFrom stats rnorm
->>>>>>> e89b06fa0ff79789322551af792eb2964f53ca5d
 #' @examples
 #' \dontrun{daily_bike_rental()}
 

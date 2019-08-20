@@ -5,8 +5,7 @@
 #' @param station_number number that means the number of each station.(1 ~ 144)
 #' @return a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 #' @export
-#' @import lubridate dplyr
-#' @importFrom lubridate hour month wday year floor_date
+#' @importFrom lubridate hour month wday year floor_date as_datetime
 #' @importFrom dplyr summarise group_by left_join
 #' @examples
 #' \dontrun{test_dataset <- create_test_dataset(1)}

@@ -6,7 +6,7 @@
 #' @param test_dataset testing dataset
 #' @return test_dataset with predictive result.
 #' @export
-#' @importFrom stats predict
+#' @importFrom stats predict filter lag
 #' @examples
 #' \dontrun{train_dataset <- create_train_dataset(3)
 #' test_dataset <- create_test_dataset(3)
