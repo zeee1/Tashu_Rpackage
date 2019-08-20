@@ -4,9 +4,15 @@
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
 #'
 #' @export
+<<<<<<< HEAD
 #' @importFrom stats reorder
 #' @importFrom ggplot2 ggplot geom_bar aes geom_text coord_flip xlab ylab ggtitle theme theme_light element_text
 #' @importFrom utils head
+=======
+#' @importFrom utils head
+#' @importFrom stats reorder lag filter
+#' @importFrom ggplot2 ggplot geom_bar aes geom_text coord_flip xlab ylab ggtitle theme theme_light element_text
+>>>>>>> 69ed2f80b1268ee896326b867e3490f40392d7c7
 #' @examples
 #' \dontrun{top10_stations()}
 

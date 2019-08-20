@@ -1,6 +1,10 @@
 #' Visualize Top 10 Pathes that were most used from 2013 to 2015.
 #'
 #' @export
+<<<<<<< HEAD
+=======
+#' @importFrom utils head
+>>>>>>> 69ed2f80b1268ee896326b867e3490f40392d7c7
 #' @importFrom ggplot2 ggplot geom_point aes_string
 #' @importFrom utils head
 #' @examples

@@ -8,7 +8,11 @@
 #' @importFrom reshape2 melt
 #' @importFrom lubridate wday hour
 #' @importFrom ggplot2 ggplot geom_tile xlab ylab scale_fill_gradientn coord_equal theme_bw ggtitle
+<<<<<<< HEAD
 #' @importFrom dplyr summarise group_by left_join %>%
+=======
+#' @importFrom dplyr summarise group_by %>%
+>>>>>>> 69ed2f80b1268ee896326b867e3490f40392d7c7
 #' @importFrom stats rnorm
 #' @examples
 #' \dontrun{daily_bike_rental()}
