@@ -3,7 +3,6 @@
 #' @param train_dataset Training dataset created by create_train_dataset()
 #' @return random forest training model
 #' @export
-#' @import randomForest
 #' @importFrom randomForest randomForest
 #' @examples
 #' \dontrun{train_dataset <- create_train_dataset(3)
