@@ -1,10 +1,10 @@
 ---
-title: "tashu : Analysis and Demand forecast for Public bicycles('Tashu') in Daejeon, South Korea"
-author: "JiWon Min"
+title: "tashu"
+author: "Jiwon Min"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{tashu}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -45,7 +45,7 @@ head(weather, n = 5)
 
 ## 3. Analysis function
 
-This package provides some functions that analyze bicycle rental/return history. We implements functions showing popular top 10 stations and pathes and change of rental amount according to day and month.
+This package provides some functions that analyze bicycle rental/return history. We implements functions showing popular top 10 stations and paths and change of rental amount according to day and month.
 
 1.    top10_stations()
 : This function presents top 10 stations that have most number of bike rental for 3 years.
@@ -55,12 +55,12 @@ library(tashu)
 top10_stations()
 ```
 
-2.    top10_pathes()
-: This function presents top 10 pathes that have mostly used for 3 years.
+2.    top10_paths()
+: This function presents top 10 paths that have mostly used for 3 years.
 
 ```{r, fig.width=7,fig.height=8}
 library(tashu)
-top10_pathes()
+top10_paths()
 ```
 
 3.    daily_bike_rental()

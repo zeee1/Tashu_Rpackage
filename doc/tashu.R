@@ -16,7 +16,7 @@ top10_stations()
 
 ## ---- fig.width=7,fig.height=8-------------------------------------------
 library(tashu)
-top10_pathes()
+top10_paths()
 
 ## ---- fig.width=7,fig.height=8-------------------------------------------
 library(tashu)

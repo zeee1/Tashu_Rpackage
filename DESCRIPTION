@@ -1,17 +1,16 @@
 Package: tashu
 Type: Package
-Title: Analysis of bike rental history on public bicycle system('Tashu') in Daejeon, South Korea
+Title: Analysis and Prediction of Bicycle Rental Amount
 Version: 0.1.0
-Author: Jiwon Min <miw5281@gmail.com>
+Authors@R: person("Jiwon", "Min", email = "miw5281@gmail.com", role = c("aut", "cre"))
 Maintainer: Jiwon Min <miw5281@gmail.com>
-Description: This package provides bike rental history data for 3 years 
-    and functions for analyzing citizens' bicycle usage pattern and predicting rental amount on specific conditions. 
-    top10_stations(), top10_pathes() function visualizes image showing the most used top 10 stations and pathes.
-    daily_bike_rental() and monthly_bike_rental() shows daily, monthly amount of bike rental.
+Description: It provides bicycle rental history data for 3 years and functions for analyzing citizens' bicycle usage pattern and predicting rental amount on specific conditions. 
+    top10_stations(), top10_paths() function visualizes image showing the most used top 10 stations and paths.
+    daily_bike_rental() and monthly_bike_rental() shows daily, monthly amount of bicycle rental.
     create_train_dataset(), create_test_dataset() is data processing function for prediction.
-    Bike rental history from 2013 to 2014 is used to create training dataset and that on 2015 is for test dataset.
+    Bicycle rental history from 2013 to 2014 is used to create training dataset and that on 2015 is for test dataset.
     Users can makes random-forest prediction model by using create_train_model() 
-    and predict amount of bike rental in 2015 by using predict_bike_rental().
+    and predict amount of bicycle rental in 2015 by using predict_bike_rental().
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
