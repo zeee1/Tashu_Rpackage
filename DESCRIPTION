@@ -21,7 +21,8 @@ Imports:
     randomForest,
     plyr,
     reshape2,
-    RColorBrewer
+    RColorBrewer,
+    drat
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

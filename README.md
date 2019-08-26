@@ -11,6 +11,7 @@ Installation
 You can install Tashu from github with:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("zeee1/Tashu_Rpackage")
+library(drat)
+addRepo("zeee1")
+install.packages("tashudata")
 ```
