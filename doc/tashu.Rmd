@@ -20,8 +20,7 @@ This package provides real bicycle rental/return history which has been recorded
 * tashu : Rental/Return record from 2013 to 2015.
 
 ```{r}
-load(file = "../data/tashu.rda")
-head(tashu, n = 5)
+head(tashudata::tashu, n = 5)
 ```
 
 2.    Tashu Station Data
@@ -29,8 +28,7 @@ head(tashu, n = 5)
 
 * tashuStationData : data of 144 Stations on Tashu system. 
 ```{r}
-load(file = "../data/tashuStation.rda")
-head(tashuStation, n = 5)
+head(tashudata::tashuStation, n = 5)
 ```
 
 3.    Weather Data
@@ -39,8 +37,7 @@ head(tashuStation, n = 5)
 * weather : weather data in Daejeon from 2013 to 2015
 
 ```{r}
-load(file = "../data/weather.rda")
-head(weather, n = 5)
+head(tashudata::weather, n = 5)
 ```
 
 ## 3. Analysis function

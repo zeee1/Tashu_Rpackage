@@ -12,13 +12,15 @@
 monthly_bike_rental <- function() {
 
     # Compute monthly rental ratio
-    tashu$month <- month(tashu$RENT_DATE)
-    rental_by_month <- tashu %>% group_by(month) %>% summarise(rentcount = n())
+  tashu_record <- tashudata::tashu
+  tashu_record$month <- month(tashu_record$RENT_DATE)
+    rental_by_month <- tashu_record %>% group_by(month) %>% summarise(rentcount = n())
     rental_by_month$ratio <- rental_by_month$rentcount/sum(rental_by_month$rentcount) * 100
 
     # Compute monthly average temperature
-    weather$month <- month(weather$Datetime)
-    temperature_by_month <- weather %>%
+    tashu_weather <- tashudata::weather
+    tashu_weather$month <- month(tashu_weather$Datetime)
+    temperature_by_month <- tashu_weather %>%
       group_by(month) %>%
       summarise(temperature = mean(Temperature))
 

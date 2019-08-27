@@ -15,10 +15,11 @@
 
 
 daily_bike_rental <- function() {
-    tashu$weekday <- lubridate::wday(tashu$RENT_DATE)
-    tashu$hour <- lubridate::hour(tashu$RENT_DATE)
+  tashu_record <- tashudata::tashu
+  tashu_record$weekday <- lubridate::wday(tashudata::tashu$RENT_DATE)
+  tashu_record$hour <- lubridate::hour(tashudata::tashu$RENT_DATE)
 
-    daily_bike_usage <- tashu %>%
+    daily_bike_usage <- tashu_record %>%
       dplyr::group_by(weekday, hour) %>%
       dplyr::summarise(rental_count = n())
 

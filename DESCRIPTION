@@ -22,7 +22,9 @@ Imports:
     plyr,
     reshape2,
     RColorBrewer,
-    drat
+    drat,
+    tashudata
+Additional_repositories: https://zeee1.github.io/drat
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
