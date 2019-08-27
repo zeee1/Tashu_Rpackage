@@ -3,11 +3,7 @@
 #' @param train_dataset Training dataset created by create_train_dataset()
 #' @return random forest training model
 #' @export
-<<<<<<< HEAD
 #' @importFrom randomForest randomForest
-=======
-#' @importFrom randomForest randomForest margin combine
->>>>>>> 69ed2f80b1268ee896326b867e3490f40392d7c7
 #' @examples
 #' \dontrun{train_dataset <- create_train_dataset(3)
 #' rf_model <- create_train_model(train_dataset)}

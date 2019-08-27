@@ -1,10 +1,10 @@
 ---
-title: "tashu : Analysis and Demand forecast for Public bicycles('Tashu') in Daejeon, South Korea"
+title: "tashu"
 author: "JiWon Min"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{tashu}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

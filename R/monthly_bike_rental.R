@@ -4,11 +4,7 @@
 #'
 #' @export
 #' @importFrom lubridate month
-<<<<<<< HEAD
 #' @importFrom dplyr summarise group_by %>%
-=======
-#' @importFrom dplyr summarise group_by left_join %>%
->>>>>>> 69ed2f80b1268ee896326b867e3490f40392d7c7
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
 #' \dontrun{monthly_bike_rental()}
