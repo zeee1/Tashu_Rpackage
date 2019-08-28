@@ -7,6 +7,7 @@
 #' \dontrun{top10_paths()}
 #'
 top10_paths <- function() {
+  check_data()
     trace_cnt <- data.frame(table(tashudata::tashu$RENT_STATION, tashudata::tashu$RETURN_STATION))
     names(trace_cnt) <- c("RENT_STATION", "RETURN_STATION", "COUNT")
     sort_trace_cnt <- head(trace_cnt[order(-trace_cnt$COUNT), ], 10)

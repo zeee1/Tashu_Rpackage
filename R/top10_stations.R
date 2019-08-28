@@ -11,6 +11,7 @@
 #' \dontrun{top10_stations()}
 
 top10_stations <- function() {
+  check_data()
     rent_cnt <- data.frame(table(tashudata::tashu$RENT_STATION))
     return_cnt <- data.frame(table(tashudata::tashu$RETURN_STATION))
     names(rent_cnt) <- c("station_no", "count")

@@ -14,7 +14,7 @@ Description: It provides bicycle rental history data for 3 years and functions f
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
     ggplot2,
     lubridate,
     dplyr,
@@ -22,11 +22,11 @@ Imports:
     plyr,
     reshape2,
     RColorBrewer,
-    drat,
+    drat
+Suggests: knitr,
+    rmarkdown,
     tashudata
 Additional_repositories: https://zeee1.github.io/drat
-Suggests: knitr,
-    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Depends: R (>= 3.5.0)

@@ -16,6 +16,7 @@
 
 
 predict_bike_rental <- function(rf_model, test_dataset) {
+  check_data()
     month_list <- c(1:12)
     month_list <- month_list[!is.na(month_list)]
 

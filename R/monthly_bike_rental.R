@@ -10,6 +10,7 @@
 #' \dontrun{monthly_bike_rental()}
 
 monthly_bike_rental <- function() {
+  check_data()
 
     # Compute monthly rental ratio
   tashu_record <- tashudata::tashu

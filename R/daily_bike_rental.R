@@ -15,6 +15,7 @@
 
 
 daily_bike_rental <- function() {
+  check_data()
   tashu_record <- tashudata::tashu
   tashu_record$weekday <- lubridate::wday(tashudata::tashu$RENT_DATE)
   tashu_record$hour <- lubridate::hour(tashudata::tashu$RENT_DATE)

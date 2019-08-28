@@ -12,6 +12,7 @@
 #'
 
 create_test_dataset <- function(station_number) {
+  check_data()
   if (station_number < 1 || station_number > 144){
     stop("Station number should be from 1 to 144. Please re-Input station number.", call. = FALSE)
   }
