@@ -4,7 +4,9 @@ Title: Analysis and Prediction of Bicycle Rental Amount
 Version: 0.1.0
 Authors@R: person("Jiwon", "Min", email = "miw5281@gmail.com", role = c("aut", "cre"))
 Maintainer: Jiwon Min <miw5281@gmail.com>
-Description: It provides bicycle rental history data for 3 years and functions for analyzing citizens' bicycle usage pattern and predicting rental amount on specific conditions. 
+Description: It provides functions for analyzing citizens' bicycle usage pattern and predicting rental amount on specific conditions.
+    Analysis functions use data on tashudata package. 'tashudata' package must be installed before calling functions in this package.
+    There is installing way on README.
     top10_stations(), top10_paths() function visualizes image showing the most used top 10 stations and paths.
     daily_bike_rental() and monthly_bike_rental() shows daily, monthly amount of bicycle rental.
     create_train_dataset(), create_test_dataset() is data processing function for prediction.
