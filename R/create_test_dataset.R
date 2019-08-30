@@ -32,13 +32,13 @@ create_test_dataset <- function(station_number) {
   test_dataset[test_dataset$month == 12 | test_dataset$month <= 2, "season"] <- "4"
 
   # Collect feature data('Temperature', 'Windspeed', 'humidity', 'Rainfall') from weather dataset(2013.01.01 ~ 2014.12.31)
-  weather2015 <- weather[lubridate::year(weather$Datetime) == 2015, ]
+  weather2015 <- tashudata::weather[lubridate::year(tashudata::weather$Datetime) == 2015, ]
   feature_weather <- weather2015[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
   colnames(feature_weather) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
   feature_weather$datetime <- as_datetime(feature_weather$datetime, tz = "EST")
 
   # Collect rental history on 'station_number' station.
-  tashu2015 <- tashu[lubridate::year(tashu$RENT_DATE) == 2015, ]
+  tashu2015 <- tashudata::tashu[lubridate::year(tashudata::tashu$RENT_DATE) == 2015, ]
   rental_history <- tashu2015[tashu2015$RENT_STATION == station_number, ]
 
   # Compute hourly rental count

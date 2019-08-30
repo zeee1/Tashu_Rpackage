@@ -32,13 +32,13 @@ create_train_dataset <- function(station_number) {
     train_dataset[train_dataset$month == 12 | train_dataset$month <= 2, "season"] <- "4"
 
     # Collect feature data('Temperature', 'Windspeed', 'humidity', 'Rainfall') from weather dataset(2013.01.01 ~ 2014.12.31)
-    weather20132014 <- weather[lubridate::year(weather$Datetime) < 2015, ]
+    weather20132014 <- tashudata::weather[lubridate::year(tashudata::weather$Datetime) < 2015, ]
     feature_weather <- weather20132014[, c("Datetime", "Temperature", "WindSpeed", "Humidity", "Rainfall")]
     colnames(feature_weather) <- c("datetime", "Temperature", "Windspeed", "Humidity", "Rainfall")
     feature_weather$datetime <- as_datetime(feature_weather$datetime, tz = "EST")
 
     # Collect rental history on 'station_number' station.
-    tashu20132014 <- tashu[lubridate::year(tashu$RENT_DATE) < 2015, ]
+    tashu20132014 <- tashudata::tashu[lubridate::year(tashudata::tashu$RENT_DATE) < 2015, ]
     rental_history <- tashu20132014[tashu20132014$RENT_STATION == station_number, ]
 
     # Compute hourly rental count

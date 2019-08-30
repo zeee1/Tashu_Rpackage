@@ -20,8 +20,7 @@ This package provides real bicycle rental/return history which has been recorded
 * tashu : Rental/Return record from 2013 to 2015.
 
 ```{r}
-load(file = "../data/tashu.rda")
-head(tashu, n = 5)
+head(tashudata::tashu, n = 5)
 ```
 
 2.    Tashu Station Data
@@ -29,8 +28,7 @@ head(tashu, n = 5)
 
 * tashuStationData : data of 144 Stations on Tashu system. 
 ```{r}
-load(file = "../data/tashuStation.rda")
-head(tashuStation, n = 5)
+head(tashudata::tashuStation, n = 5)
 ```
 
 3.    Weather Data
@@ -39,13 +37,12 @@ head(tashuStation, n = 5)
 * weather : weather data in Daejeon from 2013 to 2015
 
 ```{r}
-load(file = "../data/weather.rda")
-head(weather, n = 5)
+head(tashudata::weather, n = 5)
 ```
 
 ## 3. Analysis function
 
-This package provides some functions that analyze bicycle rental/return history. We implements functions showing popular top 10 stations and pathes and change of rental amount according to day and month.
+This package provides some functions that analyze bicycle rental/return history. We implements functions showing popular top 10 stations and paths and change of rental amount according to day and month.
 
 1.    top10_stations()
 : This function presents top 10 stations that have most number of bike rental for 3 years.
@@ -55,12 +52,12 @@ library(tashu)
 top10_stations()
 ```
 
-2.    top10_pathes()
-: This function presents top 10 pathes that have mostly used for 3 years.
+2.    top10_paths()
+: This function presents top 10 paths that have mostly used for 3 years.
 
 ```{r, fig.width=7,fig.height=8}
 library(tashu)
-top10_pathes()
+top10_paths()
 ```
 
 3.    daily_bike_rental()

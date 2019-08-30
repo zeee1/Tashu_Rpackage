@@ -1,14 +1,11 @@
 ## ------------------------------------------------------------------------
-load(file = "../data/tashu.rda")
-head(tashu, n = 5)
+head(tashudata::tashu, n = 5)
 
 ## ------------------------------------------------------------------------
-load(file = "../data/tashuStation.rda")
-head(tashuStation, n = 5)
+head(tashudata::tashuStation, n = 5)
 
 ## ------------------------------------------------------------------------
-load(file = "../data/weather.rda")
-head(weather, n = 5)
+head(tashudata::weather, n = 5)
 
 ## ---- fig.width=7,fig.height=8-------------------------------------------
 library(tashu)
@@ -16,7 +13,7 @@ top10_stations()
 
 ## ---- fig.width=7,fig.height=8-------------------------------------------
 library(tashu)
-top10_pathes()
+top10_paths()
 
 ## ---- fig.width=7,fig.height=8-------------------------------------------
 library(tashu)
