@@ -1,4 +1,4 @@
-#' Create random-forest training model for bike rental prediction.
+#' Create random-forest training model for bicycle rental prediction.
 #'
 #' @param train_dataset Training dataset created by create_train_dataset()
 #' @return random forest training model
@@ -9,6 +9,7 @@
 #' rf_model <- create_train_model(train_dataset)}
 
 create_train_model <- function(train_dataset) {
+  check_data()
   rf_model <- randomForest::randomForest(extract_features(train_dataset),
                            train_dataset$rentcount,
                            ntree = 50, mtry = 2, importance = TRUE)

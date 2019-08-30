@@ -1,39 +1,18 @@
 ---
-title: "tashu"
-author: "JiWon Min"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{tashu}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "README"
+author: "Jiwon Min"
+date: "2019년 8월 28일"
+output: html_document
 ---
-```{r echo = FALSE}
-tashudata_installed <- requireNamespace("tashudata", quietly=TRUE)
-if (!tashudata_installed) {
-    knitr::opts_chunk$set(eval = FALSE)
-    msg <- paste("Examples in this vignette can be executed when", 
-                 "'tashudata' package be installed. ",
-                 "This working environment don't have 'tashudata' package",
-                 "All R code below would not be executed normally.",
-                 "Please Use this package after installing 'tashudata' package.")
-    msg <- paste(strwrap(msg), collapse="\n")
-    message(msg)
-}
-```
 
+Tashu
+=====
 
-## Installation : tashu
-Package 'tashu' provides functions that analyze bicycle rental history and predict amount of rental on specific station.
-It can be installed by using github.
-Example R code is below.
+This package provides bike rental history and analysis function of public bike system('Tashu') in Daejeon, South Korea.
 
-``` {r eval=FALSE}
-library(devtools)
-devtools::install_github("zeee1/Tashu_Rpackage")
-```
+Installation
+------------
 
-## Installation : "tashudata" package
 Package 'tashudata' should be installed by using 'drat' package before calling analysis function.
 tashudata contains some data such as bicycle rental history, weather and bicycle station information for 3 years.
 Functions of package 'tashu' uses data on 'tashudata'.
@@ -43,7 +22,6 @@ library(drat)
 addRepo("zeee1")
 install.packages("tashudata")
 ```
-
 
 ## 1. Introduction
  The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens' exercise.  Bicycle arrangement on time is needed for operating this system smoothly. To know time when bicycle would be moved, Analyzing citizens' bicycle rental history is neccessary.

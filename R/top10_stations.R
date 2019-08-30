@@ -11,6 +11,7 @@
 #' \dontrun{top10_stations()}
 
 top10_stations <- function() {
+  check_data()
     rent_cnt <- data.frame(table(tashudata::tashu$RENT_STATION))
     return_cnt <- data.frame(table(tashudata::tashu$RETURN_STATION))
     names(rent_cnt) <- c("station_no", "count")
@@ -32,6 +33,6 @@ top10_stations <- function() {
       theme_light(base_size = 20) +
       xlab("Station") +
       ylab("Count") +
-      ggtitle("Most Popular Bike Station In 2013 ~ 2015\n") +
+      ggtitle("Most Popular bicycle Station In 2013 ~ 2015\n") +
       theme(plot.title = element_text(size = 18))
 }

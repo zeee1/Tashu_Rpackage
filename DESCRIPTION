@@ -16,7 +16,7 @@ Description: It provides functions for analyzing citizens' bicycle usage pattern
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
     ggplot2,
     lubridate,
     dplyr,
@@ -25,10 +25,10 @@ Imports:
     reshape2,
     RColorBrewer,
     drat
-Additional_repositories: https://zeee1.github.io/drat
 Suggests: knitr,
     rmarkdown,
     tashudata
+Additional_repositories: https://zeee1.github.io/drat
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Depends: R (>= 3.5.0)

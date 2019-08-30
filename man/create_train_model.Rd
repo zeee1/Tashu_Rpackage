@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_train_model.R
 \name{create_train_model}
 \alias{create_train_model}
-\title{Create random-forest training model for bike rental prediction.}
+\title{Create random-forest training model for bicycle rental prediction.}
 \usage{
 create_train_model(train_dataset)
 }
@@ -13,7 +13,7 @@ create_train_model(train_dataset)
 random forest training model
 }
 \description{
-Create random-forest training model for bike rental prediction.
+Create random-forest training model for bicycle rental prediction.
 }
 \examples{
 \dontrun{train_dataset <- create_train_dataset(3)
