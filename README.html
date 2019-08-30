@@ -370,11 +370,14 @@ summary {
 </div>
 
 
-<div id="tashu" class="section level1">
-<h1>Tashu</h1>
-<p>This package provides bike rental history and analysis function of public bike system(‘Tashu’) in Daejeon, South Korea.</p>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
+<div id="installation-tashu" class="section level2">
+<h2>Installation : tashu</h2>
+<p>Package ‘tashu’ provides functions that analyze bicycle rental history and predict amount of rental on specific station. It can be installed by using github. Example R code is below.</p>
+<pre class="r"><code>library(devtools)
+devtools::install_github(&quot;zeee1/Tashu_Rpackage&quot;)</code></pre>
+</div>
+<div id="installation-tashudata-package" class="section level2">
+<h2>Installation : “tashudata” package</h2>
 <p>Package ‘tashudata’ should be installed by using ‘drat’ package before calling analysis function. tashudata contains some data such as bicycle rental history, weather and bicycle station information for 3 years. Functions of package ‘tashu’ uses data on ‘tashudata’.</p>
 <pre class="r"><code>library(drat)
 addRepo(&quot;zeee1&quot;)
@@ -583,12 +586,11 @@ head(predict_result, n = 5)</code></pre>
 ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1
 ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9
 ##   Humidity Rainfall rentcount predicted_rent_count
-## 1       73        0         0          0.450192071
-## 2       79        0         0          0.014389140
-## 3       74        0         0          0.004615385
-## 4       74        0         0          0.001102941
-## 5       61        0         0          0.031540191</code></pre>
-</div>
+## 1       73        0         0         0.0187272365
+## 2       79        0         0         0.0008782237
+## 3       74        0         0         0.0002510460
+## 4       74        0         0         0.0054190047
+## 5       61        0         0         0.0031081889</code></pre>
 </div>
 
 

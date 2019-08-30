@@ -22,6 +22,10 @@ if (!tashudata_installed) {
 }
 ```
 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(tashudata)
+library(tashu)
+```
 
 ## Installation : tashu
 Package 'tashu' provides functions that analyze bicycle rental history and predict amount of rental on specific station.
