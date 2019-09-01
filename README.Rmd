@@ -49,10 +49,12 @@ install.packages("tashudata")
 
 ## 1. Introduction
  The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens' exercise.  Bicycle arrangement on time is needed for operating this system smoothly. To know time when bicycle would be moved, Analyzing citizens' bicycle rental history is neccessary.
-This package provides real bicycle rental/return history which has been recorded on public bicycle system(called 'Tashu') in Daejeon city, South Korea for 3 years, external data affecting bicycle rental(such as weather) and analyzing functions. Through this package, Users can analyze citizens' bicycle rental/return pattern free.
+This package provides example functions analyzing bicycle rental history and predicting amount of rental. User can know daily and monthly bicycle rental pattern and prediction way.
 
 
 ## 2. Data
+Package 'tashudata' provides 3 types of dataset.
+
 1.    Tashu Data
 : Bicycle rental history on Tashu from 2013 to 2015. Data is consisted of "RENT STATION, RENT DATE, RETURN STATION, RETURN DATE"
 * tashu : Rental/Return record from 2013 to 2015.

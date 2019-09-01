@@ -385,10 +385,11 @@ install.packages(&quot;tashudata&quot;)</code></pre>
 </div>
 <div id="introduction" class="section level2">
 <h2>1. Introduction</h2>
-<p>The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens’ exercise. Bicycle arrangement on time is needed for operating this system smoothly. To know time when bicycle would be moved, Analyzing citizens’ bicycle rental history is neccessary. This package provides real bicycle rental/return history which has been recorded on public bicycle system(called ‘Tashu’) in Daejeon city, South Korea for 3 years, external data affecting bicycle rental(such as weather) and analyzing functions. Through this package, Users can analyze citizens’ bicycle rental/return pattern free.</p>
+<p>The public bicycle system is spreading globally as a green public transportation. In major cities around the world, public bicycle systems are leading to the effects of distribution of public transportation demand and the increase of citizens’ exercise. Bicycle arrangement on time is needed for operating this system smoothly. To know time when bicycle would be moved, Analyzing citizens’ bicycle rental history is neccessary. This package provides example functions analyzing bicycle rental history and predicting amount of rental. User can know daily and monthly bicycle rental pattern and prediction way.</p>
 </div>
 <div id="data" class="section level2">
 <h2>2. Data</h2>
+<p>Package ‘tashudata’ provides 3 types of dataset.</p>
 <ol style="list-style-type: decimal">
 <li><dl>
 <dt>Tashu Data</dt>
@@ -586,11 +587,11 @@ head(predict_result, n = 5)</code></pre>
 ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1
 ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9
 ##   Humidity Rainfall rentcount predicted_rent_count
-## 1       73        0         0         0.0187272365
-## 2       79        0         0         0.0008782237
-## 3       74        0         0         0.0002510460
-## 4       74        0         0         0.0054190047
-## 5       61        0         0         0.0031081889</code></pre>
+## 1       73        0         0           0.08682971
+## 2       79        0         0           0.01120090
+## 3       74        0         0           0.01120090
+## 4       74        0         0           0.01040536
+## 5       61        0         0           0.02515636</code></pre>
 </div>
 
 

@@ -18,3 +18,6 @@ There was 1 NOTE:
 This package suggests a package which is not non-mainstream repository
 (a drat repository). On the Windows build, this results in the NOTE
 “Package suggested but not available for checking”.
+
+The Windows build lists some possibly mis-spelled words in DESCRIPTION.
+I have confirmed that these words are spelled correctly.
