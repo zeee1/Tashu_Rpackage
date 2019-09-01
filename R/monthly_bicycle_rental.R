@@ -25,7 +25,8 @@ monthly_bicycle_rental <- function() {
       group_by(month) %>%
       summarise(temperature = mean(Temperature))
 
-    par(mar = c(5, 5, 5, 5))
+    option <- par(mar = c(5, 5, 5, 5))
+    on.exit(par(option))
 
     plot(temperature_by_month$month,
          temperature_by_month$temperature,
@@ -46,16 +47,18 @@ monthly_bicycle_rental <- function() {
     mtext("Average temperature(Celsius)", side = 2, line = 2.5)
 
     # Allow a second plot on the same graph
-    par(new = TRUE)
+    option2 <- par(new = TRUE)
+    on.exit(par(option2))
 
     plot(rental_by_month$month,
          rental_by_month$ratio,
          xlab = "", ylab = "",
          ylim = c(0, 15),
-         pch = 15,
+         pch = 18,
          axes = FALSE,
          type = "b",
-         col = "red")
+         col = "red"
+         )
 
     # Draw rental ratio axis
     axis(4, ylim = c(0, 15), col = "black", las = 1)
@@ -67,5 +70,7 @@ monthly_bicycle_rental <- function() {
            text.col = c("blue", "red"),
            pch = c(16, 15),
            col = c("blue","red"))
+
+
 }
 

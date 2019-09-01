@@ -23,7 +23,7 @@ top10_stations <- function() {
     station_cnt["total_cnt"] <- rowSums(station_cnt[2:3])
     sort_station_cnt <- head(station_cnt[order(-station_cnt$total_cnt), ], 10)
 
-    options(scipen = 100)
+    #options(scipen = 100)
     stations_top10 <- reorder(sort_station_cnt$station_no, sort_station_cnt$total_cnt)
     ggplot(sort_station_cnt,
            aes(x = stations_top10, y = total_cnt)) +

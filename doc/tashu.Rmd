@@ -90,7 +90,6 @@ This package provides some functions that analyze bicycle rental/return history.
 : This function shows top 10 stations for 3 years.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 top10_stations()
 ```
 
@@ -98,7 +97,6 @@ top10_stations()
 : This function shows top 10 paths for 3 years.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 top10_paths()
 ```
 
@@ -106,7 +104,6 @@ top10_paths()
 : This function shows daily average amount of bicycle rental.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 daily_bicycle_rental()
 ```
 
@@ -114,7 +111,6 @@ daily_bicycle_rental()
 : This function shows monthly bicycle usage pattern.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 monthly_bicycle_rental()
 ```
 
@@ -124,19 +120,17 @@ monthly_bicycle_rental()
  This package provides functions that create train/test dataset and predict bicycle rental amount. Bicycle rental/return history and weather data would be preprocessed to train/test dataset for prediction by create_train_dataset() and create_test_dataset(). After creating train/test dataset, Users can create prediction model(create_train_model()) and predict hourly rental amount of test dataset(predict_bike_rental()). 
 
 1.    create_train_dataset(station_number)
-: This function generates training dataset for the random forest prediction model. This function preprocesses the bicycle rental history and weather data so that compute hourly rental amount on "station_number" station from 2013 to 2014. The example source code is below.
+: This function generates training dataset for the random forest prediction model. This function preprocesses the bicycle rental history and weather data so that compute hourly rental amount on "station_number" station from 2013 to 2014. "station_number" must be from 1 to 144. The example source code is below.
 
 ```{r}
-library(tashu)
 train_dataset <- create_train_dataset(1)
 head(train_dataset, n = 5)
 ```
 
 2.    create_test_dataset(station_number)
-: This function generates test dataset that would be used for prediction. Bicycle rental history at the "station_number" station and weather in 2015 are used in this function.
+: This function generates test dataset that would be used for prediction.  This function preprocesses the bicycle rental history and weather data so that compute hourly rental amount on "station_number" station in 2015. "station_number" must be from 1 to 144.
  
 ```{r}
-library(tashu)
 test_dataset <- create_test_dataset(1)
 head(test_dataset, n = 5)
 ```
@@ -145,7 +139,6 @@ head(test_dataset, n = 5)
 : This function takes training dataset as parameters and creates random-forest prediction model. Below source code is example.
  
 ```{r}
-library(tashu)
 rf_model <- create_train_model(train_dataset)
 ```
 
@@ -153,7 +146,6 @@ rf_model <- create_train_model(train_dataset)
 : This function predict amount of bicycle rental in 2015 by using rf_model trained with dataset in 2013, 2014. 
 
 ```{r}
-library(tashu)
 predict_result <- predict_bicycle_rental(rf_model, test_dataset)
 head(predict_result, n = 5)
 ```

@@ -45,13 +45,13 @@ daily_bicycle_rental <- function() {
     hourly_usage_record <- reshape2::melt(hourly_usage_record)
     palette <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space = "Lab")
 
-    zp1 <- ggplot(hourly_usage_record, aes_string(x = "Var2", y = "Var1", fill = "value"))
-    zp1 <- zp1 + geom_tile()
-    zp1 <- zp1 + scale_fill_gradientn(colours = palette(100))
-    zp1 <- zp1 + coord_equal()
-    zp1 <- zp1 + theme_bw()
-    zp1 <- zp1 + xlab("Hour")
-    zp1 <- zp1 + ylab("day Of Week")
-    zp1 <- zp1 + ggtitle("The rental amount of bicycle rental each day of week(2013 ~ 2015)")
-    print(zp1)
+    ggplot(hourly_usage_record, aes_string(x = "Var2", y = "Var1", fill = "value"))+
+      geom_tile() +
+      scale_fill_gradientn(colours = palette(100)) +
+      coord_equal() +
+      theme_bw() +
+      xlab("Hour") +
+      ylab("day Of Week") +
+      ggtitle("The rental amount of bicycle rental each day of week(2013 ~ 2015)")
+
 }
