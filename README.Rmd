@@ -62,7 +62,6 @@ This package provides some functions that analyze bicycle rental/return history.
 : This function presents top 10 stations that have most number of bike rental for 3 years.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 top10_stations()
 ```
 
@@ -70,7 +69,6 @@ top10_stations()
 : This function presents top 10 paths that have mostly used for 3 years.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 top10_paths()
 ```
 
@@ -78,14 +76,13 @@ top10_paths()
 : This function shows average amount of bike rental in each months.
 
 ```{r, fig.width=7,fig.height=5}
-library(tashu)
 daily_bike_rental()
 ```
 
 4.    monthly_bike_rental()
 : This function shows bike usage pattern in each day of week.
 
-```{r, fig.width=7,fig.height=5}
+```{r, fig.width=7,fig.height=6.5}
 library(tashu)
 monthly_bike_rental()
 ```
