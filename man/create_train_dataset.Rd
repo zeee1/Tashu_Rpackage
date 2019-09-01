@@ -13,7 +13,7 @@ create_train_dataset(station_number)
 a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014
 }
 \description{
-A function to create training dataset on 'station_number' bike station by preprocessing bike rental history and weather data from 2013 to 2014.
+A function to create training dataset on 'station_number' bicycle station by preprocessing bicycle rental history and weather data from 2013 to 2014.
 }
 \examples{
 \dontrun{train_dataset <- create_train_dataset(1)}

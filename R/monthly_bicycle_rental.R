@@ -1,15 +1,15 @@
 #' Visualize the change of bicycle rental amount by temperature and each month.
 #'
-#' A function drawing a plot that shows change of temperature and bike rental ratio in each month.
+#' A function drawing a plot that shows change of temperature and bicycle rental ratio in each month.
 #'
 #' @export
 #' @importFrom lubridate month
 #' @importFrom dplyr summarise group_by %>%
 #' @importFrom graphics par plot axis mtext legend
 #' @examples
-#' \dontrun{monthly_bike_rental()}
+#' \dontrun{monthly_bicycle_rental()}
 
-monthly_bike_rental <- function() {
+monthly_bicycle_rental <- function() {
   check_data()
 
     # Compute monthly rental ratio
@@ -25,7 +25,7 @@ monthly_bike_rental <- function() {
       group_by(month) %>%
       summarise(temperature = mean(Temperature))
 
-    par(mar = c(5, 5, 5, 5))
+    option <- par(mar = c(5, 5, 5, 5))
 
     plot(temperature_by_month$month,
          temperature_by_month$temperature,
@@ -52,20 +52,23 @@ monthly_bike_rental <- function() {
          rental_by_month$ratio,
          xlab = "", ylab = "",
          ylim = c(0, 15),
-         pch = 15,
+         pch = 18,
          axes = FALSE,
          type = "b",
-         col = "red")
+         col = "red"
+         )
 
     # Draw rental ratio axis
     axis(4, ylim = c(0, 15), col = "black", las = 1)
-    mtext("Ratio of Bike Rental(%)", side = 4, line = 2.5)
+    mtext("Ratio of bicycle Rental(%)", side = 4, line = 2.5)
 
     # Draw legend information
     legend("topright", cex = 0.8,
-           legend = c("Average Temperature", "Ratio of Bike Rental"),
+           legend = c("Average Temperature", "Ratio of bicycle Rental"),
            text.col = c("blue", "red"),
            pch = c(16, 15),
            col = c("blue","red"))
+
+    on.exit(option)
 }
 

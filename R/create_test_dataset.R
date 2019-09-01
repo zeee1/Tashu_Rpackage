@@ -1,6 +1,6 @@
 #' Create training dataset on specific station for prediction
 #'
-#' A function to create training dataset on 'station_number' bike station by preprocessing bike rental history and weather data from 2013 to 2014.
+#' A function to create training dataset on 'station_number' bicycle station by preprocessing bicycle rental history and weather data from 2013 to 2014.
 #'
 #' @param station_number number that means the number of each station.(1 ~ 144)
 #' @return a dataset containing feature and rental count data on 'station_number' station, 2013 ~ 2014

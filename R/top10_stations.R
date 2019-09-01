@@ -4,9 +4,9 @@
 #' @return Data frame that contains top 10 most used stations from 2013 to 2015
 #'
 #' @export
-#' @importFrom utils head
-#' @importFrom stats reorder lag filter
+#' @importFrom stats reorder
 #' @importFrom ggplot2 ggplot geom_bar aes geom_text coord_flip xlab ylab ggtitle theme theme_light element_text
+#' @importFrom utils head
 #' @examples
 #' \dontrun{top10_stations()}
 
@@ -23,7 +23,7 @@ top10_stations <- function() {
     station_cnt["total_cnt"] <- rowSums(station_cnt[2:3])
     sort_station_cnt <- head(station_cnt[order(-station_cnt$total_cnt), ], 10)
 
-    options(scipen = 100)
+    #options(scipen = 100)
     stations_top10 <- reorder(sort_station_cnt$station_no, sort_station_cnt$total_cnt)
     ggplot(sort_station_cnt,
            aes(x = stations_top10, y = total_cnt)) +
@@ -33,6 +33,6 @@ top10_stations <- function() {
       theme_light(base_size = 20) +
       xlab("Station") +
       ylab("Count") +
-      ggtitle("Most Popular Bike Station In 2013 ~ 2015\n") +
+      ggtitle("Most Popular bicycle Station In 2013 ~ 2015\n") +
       theme(plot.title = element_text(size = 18))
 }

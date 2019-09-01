@@ -4,3 +4,6 @@
 ^Meta$
 ^README\.Rmd$
 ^README\.md$
+^README\.html$
+^cran-comments\.Rmd$
+^cran-comments\.md$

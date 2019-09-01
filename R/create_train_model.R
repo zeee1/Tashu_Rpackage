@@ -1,4 +1,4 @@
-#' Create random-forest training model for bike rental prediction.
+#' Create random-forest training model for bicycle rental prediction.
 #'
 #' @param train_dataset Training dataset created by create_train_dataset()
 #' @return random forest training model

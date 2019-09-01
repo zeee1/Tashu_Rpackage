@@ -1,5 +1,4 @@
 #' Visualize Top 10 Pathes that were most used from 2013 to 2015.
-#'
 #' @export
 #' @importFrom ggplot2 ggplot geom_point aes_string
 #' @importFrom utils head
@@ -14,5 +13,6 @@ top10_paths <- function() {
     ggplot() +
       geom_point(
         aes_string(x = "RENT_STATION", y = "RETURN_STATION", size = "COUNT"),
-        data = sort_trace_cnt)
+        data = sort_trace_cnt)+
+      ggtitle("Most Popular paths In 2013 ~ 2015\n")
 }
