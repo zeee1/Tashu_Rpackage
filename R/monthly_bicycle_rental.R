@@ -47,8 +47,7 @@ monthly_bicycle_rental <- function() {
     mtext("Average temperature(Celsius)", side = 2, line = 2.5)
 
     # Allow a second plot on the same graph
-    option2 <- par(new = TRUE)
-    on.exit(par(option2))
+    par(new = TRUE)
 
     plot(rental_by_month$month,
          rental_by_month$ratio,

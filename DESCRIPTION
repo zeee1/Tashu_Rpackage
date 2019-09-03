@@ -6,7 +6,7 @@ Authors@R: person("Jiwon", "Min", email = "miw5281@gmail.com", role = c("aut", "
 Maintainer: Jiwon Min <miw5281@gmail.com>
 Description: Provides functions for analyzing citizens' bicycle usage pattern and predicting rental amount on specific conditions.
     Functions on this package interacts with data on 'tashudata' package, a 'drat' repository.
-    'tashudata' pacakge contains rental/return history on public bicycle system('Tashu'), weather for 3 years and bicycle station information. 
+    'tashudata' package contains rental/return history on public bicycle system('Tashu'), weather for 3 years and bicycle station information. 
     To install this data package, see the instructions at <https://github.com/zeee1/Tashu_Rpackage>.
     top10_stations(), top10_paths() function visualizes image showing the most used top 10 stations and paths.
     daily_bike_rental() and monthly_bike_rental() shows daily, monthly amount of bicycle rental.
