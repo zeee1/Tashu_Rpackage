@@ -2,7 +2,7 @@
 title: "README"
 author: "Jiwon Min"
 date: "2019년 8월 28일"
-output: html_document
+output: md_document
 ---
 
 
