@@ -20,9 +20,10 @@ daily_bicycle_rental <- function() {
   tashu_record$weekday <- lubridate::wday(tashudata::tashu$RENT_DATE)
   tashu_record$hour <- lubridate::hour(tashudata::tashu$RENT_DATE)
 
-    daily_bicycle_usage <- tashu_record %>%
-      dplyr::group_by(weekday, hour) %>%
-      dplyr::summarise(rental_count = n())
+
+
+  daily_bicycle_usage <- tashu_record %>% dplyr::count(weekday, hour) %>% dplyr::rename(rental_count = n)
+
 
     daily_bicycle_usage <- daily_bicycle_usage[daily_bicycle_usage$hour > 4, ]
     number_of_row <- 7

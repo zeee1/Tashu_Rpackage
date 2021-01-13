@@ -47,9 +47,8 @@ create_train_dataset <- function(station_number) {
     colnames(rental_history) <- c("datetime", "rentcount")
     rental_history$datetime <- as.POSIXct(rental_history$datetime, tz = "EST")
     rental_history$datetime <- lubridate::floor_date(rental_history$datetime, "hour")
-    #rental_history <- rental_history %>% group_by(datetime) %>% summarise(rentcount = n())
-    rental_history <- dplyr::group_by(rental_history, datetime)
-    rental_history <- dplyr::summarise(rental_history, rentcount = n())
+    rental_history <- rental_history %>% dplyr::count(datetime) %>% dplyr::rename(rentcount = n)
+
 
     # Add train_dataset to weather data and rental count
     train_dataset <- dplyr::left_join(train_dataset, feature_weather)

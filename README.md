@@ -87,36 +87,30 @@ Package ‘tashudata’ provides 3 types of dataset.
 
     head(tashudata::weather, n = 5)
 
-    ##              Datetime Temperature Rainfall WindSpeed WindDirection
-    ## 1 2013-01-01 00:00:00        -8.8       NA       0.1             0
-    ## 2 2013-01-01 01:00:00        -8.5       NA       0.9           270
-    ## 3 2013-01-01 02:00:00        -8.5       NA       1.0           320
-    ## 4 2013-01-01 03:00:00        -9.0       NA       0.7           270
-    ## 5 2013-01-01 04:00:00        -9.1       NA       0.6           320
-    ##   Humidity VaporPressure DewpointTemperature LocalPressure
-    ## 1       90           2.8               -10.1        1013.3
-    ## 2       90           2.9                -9.8        1013.2
-    ## 3       89           2.9                -9.9        1012.6
-    ## 4       91           2.8               -10.2        1012.5
-    ## 5       92           2.8               -10.1        1011.4
-    ##   SeaSurfacePressure Sunshine SolarRadiation Snowfall GroundTemperature
-    ## 1             1022.3       NA             NA      8.8              -0.9
-    ## 2             1022.2       NA             NA      8.8              -0.8
-    ## 3             1021.6       NA             NA      8.8              -0.8
-    ## 4             1021.5       NA             NA      8.8              -0.8
-    ## 5             1020.4       NA             NA      8.8              -0.8
-    ##   X5cmGroundTemperature X10cmGroundTemperature X20cmGroundTemperature
-    ## 1                  -0.1                    0.3                    1.1
-    ## 2                  -0.1                    0.3                    1.1
-    ## 3                  -0.1                    0.3                    1.1
-    ## 4                  -0.1                    0.3                    1.1
-    ## 5                  -0.1                    0.3                    1.1
-    ##   X30cmGroundTemperature
-    ## 1                    1.5
-    ## 2                    1.5
-    ## 3                    1.4
-    ## 4                    1.5
-    ## 5                    1.5
+    ##              Datetime Temperature Rainfall WindSpeed WindDirection Humidity
+    ## 1 2013-01-01 00:00:00        -8.8       NA       0.1             0       90
+    ## 2 2013-01-01 01:00:00        -8.5       NA       0.9           270       90
+    ## 3 2013-01-01 02:00:00        -8.5       NA       1.0           320       89
+    ## 4 2013-01-01 03:00:00        -9.0       NA       0.7           270       91
+    ## 5 2013-01-01 04:00:00        -9.1       NA       0.6           320       92
+    ##   VaporPressure DewpointTemperature LocalPressure SeaSurfacePressure Sunshine
+    ## 1           2.8               -10.1        1013.3             1022.3       NA
+    ## 2           2.9                -9.8        1013.2             1022.2       NA
+    ## 3           2.9                -9.9        1012.6             1021.6       NA
+    ## 4           2.8               -10.2        1012.5             1021.5       NA
+    ## 5           2.8               -10.1        1011.4             1020.4       NA
+    ##   SolarRadiation Snowfall GroundTemperature X5cmGroundTemperature
+    ## 1             NA      8.8              -0.9                  -0.1
+    ## 2             NA      8.8              -0.8                  -0.1
+    ## 3             NA      8.8              -0.8                  -0.1
+    ## 4             NA      8.8              -0.8                  -0.1
+    ## 5             NA      8.8              -0.8                  -0.1
+    ##   X10cmGroundTemperature X20cmGroundTemperature X30cmGroundTemperature
+    ## 1                    0.3                    1.1                    1.5
+    ## 2                    0.3                    1.1                    1.5
+    ## 3                    0.3                    1.1                    1.4
+    ## 4                    0.3                    1.1                    1.5
+    ## 5                    0.3                    1.1                    1.5
 
 3. Analysis function
 --------------------
@@ -188,18 +182,18 @@ dataset(predict\_bike\_rental()).
 
     head(train_dataset, n = 5)
 
-    ##              datetime hour month weekday season Temperature Windspeed
-    ## 1 2013-01-01 00:00:00    0     1       3      4        -9.4       0.5
-    ## 2 2013-01-01 01:00:00    1     1       3      4        -9.0       1.4
-    ## 3 2013-01-01 02:00:00    2     1       3      4        -8.3       0.2
-    ## 4 2013-01-01 03:00:00    3     1       3      4        -7.3       1.7
-    ## 5 2013-01-01 04:00:00    4     1       3      4        -6.4       0.9
-    ##   Humidity Rainfall rentcount
-    ## 1       92      0.0         0
-    ## 2       93      0.0         0
-    ## 3       94      0.0         0
-    ## 4       96      0.0         0
-    ## 5       96      2.2         0
+    ##              datetime hour month weekday season Temperature Windspeed Humidity
+    ## 1 2013-01-01 00:00:00    0     1       3      4        -9.4       0.5       92
+    ## 2 2013-01-01 01:00:00    1     1       3      4        -9.0       1.4       93
+    ## 3 2013-01-01 02:00:00    2     1       3      4        -8.3       0.2       94
+    ## 4 2013-01-01 03:00:00    3     1       3      4        -7.3       1.7       96
+    ## 5 2013-01-01 04:00:00    4     1       3      4        -6.4       0.9       96
+    ##   Rainfall rentcount
+    ## 1      0.0         0
+    ## 2      0.0         0
+    ## 3      0.0         0
+    ## 4      0.0         0
+    ## 5      2.2         0
 
 1.  create\_test\_dataset(station\_number)  
     This function generates test dataset that would be used for
@@ -217,18 +211,18 @@ dataset(predict\_bike\_rental()).
 
     head(test_dataset, n = 5)
 
-    ##              datetime hour month weekday season Temperature Windspeed
-    ## 1 2015-01-01 00:00:00    0     1       5      4        -7.0       2.4
-    ## 2 2015-01-01 01:00:00    1     1       5      4        -7.2       1.4
-    ## 3 2015-01-01 02:00:00    2     1       5      4        -7.6       1.4
-    ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1
-    ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9
-    ##   Humidity Rainfall rentcount
-    ## 1       73        0         0
-    ## 2       79        0         0
-    ## 3       74        0         0
-    ## 4       74        0         0
-    ## 5       61        0         0
+    ##              datetime hour month weekday season Temperature Windspeed Humidity
+    ## 1 2015-01-01 00:00:00    0     1       5      4        -7.0       2.4       73
+    ## 2 2015-01-01 01:00:00    1     1       5      4        -7.2       1.4       79
+    ## 3 2015-01-01 02:00:00    2     1       5      4        -7.6       1.4       74
+    ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1       74
+    ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9       61
+    ##   Rainfall rentcount
+    ## 1        0         0
+    ## 2        0         0
+    ## 3        0         0
+    ## 4        0         0
+    ## 5        0         0
 
 1.  create\_train\_model(train\_dataset)  
     This function takes training dataset as parameters and creates
@@ -247,15 +241,15 @@ dataset(predict\_bike\_rental()).
     predict_result <- predict_bicycle_rental(rf_model, test_dataset)
     head(predict_result, n = 5)
 
-    ##              datetime hour month weekday season Temperature Windspeed
-    ## 1 2015-01-01 00:00:00    0     1       5      4        -7.0       2.4
-    ## 2 2015-01-01 01:00:00    1     1       5      4        -7.2       1.4
-    ## 3 2015-01-01 02:00:00    2     1       5      4        -7.6       1.4
-    ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1
-    ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9
-    ##   Humidity Rainfall rentcount predicted_rent_count
-    ## 1       73        0         0           0.06020228
-    ## 2       79        0         0           0.01493317
-    ## 3       74        0         0           0.01336979
-    ## 4       74        0         0           0.01336979
-    ## 5       61        0         0           0.01983527
+    ##              datetime hour month weekday season Temperature Windspeed Humidity
+    ## 1 2015-01-01 00:00:00    0     1       5      4        -7.0       2.4       73
+    ## 2 2015-01-01 01:00:00    1     1       5      4        -7.2       1.4       79
+    ## 3 2015-01-01 02:00:00    2     1       5      4        -7.6       1.4       74
+    ## 4 2015-01-01 03:00:00    3     1       5      4        -8.3       1.1       74
+    ## 5 2015-01-01 04:00:00    4     1       5      4        -7.4       0.9       61
+    ##   Rainfall rentcount predicted_rent_count
+    ## 1        0         0           0.27053663
+    ## 2        0         0           0.09801122
+    ## 3        0         0           0.33373551
+    ## 4        0         0           0.03741423
+    ## 5        0         0           0.05322187
